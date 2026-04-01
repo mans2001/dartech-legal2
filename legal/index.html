@@ -6,501 +6,476 @@
   <meta name="robots" content="noindex, nofollow"/>
   <meta name="theme-color" content="#0f1117"/>
   <title>Dartech — Legal</title>
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 
   <style>
-    /* ────────────────────────────────────────────
+    /* ══════════════════════════════════════════
        RESET
-    ──────────────────────────────────────────── */
+    ══════════════════════════════════════════ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
-    /* ────────────────────────────────────────────
+    /* ══════════════════════════════════════════
        DESIGN TOKENS
-    ──────────────────────────────────────────── */
+    ══════════════════════════════════════════ */
     :root {
-      --bg-0:         #0f1117;
-      --bg-1:         #151921;
-      --bg-2:         #1c2030;
-      --bg-3:         #222840;
-      --bg-card:      #1e2336;
-      --border-1:     #252d42;
-      --border-2:     #2e3850;
-      --border-glow:  rgba(99,130,255,.22);
-      --txt-0:        #e8ecf7;
-      --txt-1:        #9ca8c8;
-      --txt-2:        #5c6884;
-      --accent:       #6382ff;
-      --accent-2:     #8ba3ff;
-      --accent-bg:    rgba(99,130,255,.09);
-      --accent-brd:   rgba(99,130,255,.22);
-      --warn-bg:      rgba(251,191,36,.07);
-      --warn-brd:     rgba(251,191,36,.22);
-      --warn-txt:     #fbbf24;
-      --danger-bg:    rgba(239,68,68,.07);
-      --danger-brd:   rgba(239,68,68,.22);
-      --danger-txt:   #f87171;
-      --success-bg:   rgba(52,211,153,.07);
-      --success-brd:  rgba(52,211,153,.22);
-      --success-txt:  #34d399;
-      --r-sm:  6px;
-      --r-md:  10px;
-      --r-lg:  14px;
-      --font-en-head: 'Sora',       system-ui, sans-serif;
-      --font-en-body: 'DM Sans',    system-ui, sans-serif;
-      --font-mono:    'JetBrains Mono', 'Courier New', monospace;
-      --font-ar:      'Cairo',      system-ui, sans-serif;
-      --transition:   .25s cubic-bezier(.4,0,.2,1);
+      /* backgrounds */
+      --bg-0:       #0f1117;
+      --bg-1:       #151921;
+      --bg-2:       #1c2030;
+      --bg-3:       #21263a;
+      --bg-card:    #1e2336;
+      /* borders */
+      --b1:         #252d42;
+      --b2:         #2e3850;
+      --b-glow:     rgba(99,130,255,.22);
+      /* text */
+      --t0:         #e8ecf7;
+      --t1:         #9ca8c8;
+      --t2:         #5c6884;
+      /* accent */
+      --ac:         #6382ff;
+      --ac2:        #8ba3ff;
+      --ac-bg:      rgba(99,130,255,.09);
+      --ac-brd:     rgba(99,130,255,.22);
+      /* semantic */
+      --warn-bg:    rgba(251,191,36,.07);
+      --warn-brd:   rgba(251,191,36,.22);
+      --warn-c:     #fbbf24;
+      --err-bg:     rgba(239,68,68,.07);
+      --err-brd:    rgba(239,68,68,.22);
+      --err-c:      #f87171;
+      --ok-bg:      rgba(52,211,153,.07);
+      --ok-brd:     rgba(52,211,153,.22);
+      --ok-c:       #34d399;
+      --info-bg:    rgba(56,189,248,.07);
+      --info-brd:   rgba(56,189,248,.22);
+      --info-c:     #38bdf8;
+      /* radii */
+      --r2: 4px; --r4: 8px; --r6: 10px; --r8: 14px;
+      /* fonts */
+      --f-head: 'Sora',    system-ui, sans-serif;
+      --f-body: 'DM Sans', system-ui, sans-serif;
+      --f-mono: 'JetBrains Mono', 'Courier New', monospace;
+      --f-ar:   'Cairo',  system-ui, sans-serif;
+      --ease:   .25s cubic-bezier(.4,0,.2,1);
     }
 
-    /* ────────────────────────────────────────────
+    /* ══════════════════════════════════════════
        BASE
-    ──────────────────────────────────────────── */
+    ══════════════════════════════════════════ */
     body {
       background: var(--bg-0);
-      color: var(--txt-0);
-      font-family: var(--font-en-body);
+      color: var(--t0);
+      font-family: var(--f-body);
       font-size: 15px;
       line-height: 1.78;
       -webkit-font-smoothing: antialiased;
       min-height: 100vh;
       overflow-x: hidden;
-      transition: font-family var(--transition);
     }
-    body.ar {
-      font-family: var(--font-ar);
-      direction: rtl;
-    }
+    body.ar { font-family: var(--f-ar); direction: rtl; }
 
-    /* grid bg */
+    /* subtle grid */
     body::before {
-      content:'';
-      position:fixed; inset:0;
+      content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
       background-image:
-        linear-gradient(var(--border-1) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border-1) 1px, transparent 1px);
-      background-size: 28px 28px;
-      opacity:.17;
-      pointer-events:none;
-      z-index:0;
+        linear-gradient(var(--b1) 1px, transparent 1px),
+        linear-gradient(90deg, var(--b1) 1px, transparent 1px);
+      background-size:28px 28px; opacity:.16;
     }
-    /* glow */
+    /* top glow */
     body::after {
-      content:'';
-      position:fixed;
-      top:-180px; left:50%; transform:translateX(-50%);
-      width:700px; height:420px;
-      background:radial-gradient(ellipse, rgba(99,130,255,.07) 0%, transparent 68%);
-      pointer-events:none;
-      z-index:0;
+      content:''; position:fixed; pointer-events:none; z-index:0;
+      top:-200px; left:50%; transform:translateX(-50%);
+      width:720px; height:440px;
+      background:radial-gradient(ellipse, rgba(99,130,255,.065) 0%, transparent 68%);
     }
 
     ::-webkit-scrollbar { width:5px; }
     ::-webkit-scrollbar-track { background:var(--bg-1); }
-    ::-webkit-scrollbar-thumb { background:var(--border-2); border-radius:3px; }
-    ::selection { background:rgba(99,130,255,.28); color:var(--txt-0); }
+    ::-webkit-scrollbar-thumb { background:var(--b2); border-radius:3px; }
+    ::selection { background:rgba(99,130,255,.28); color:var(--t0); }
 
-    /* ────────────────────────────────────────────
+    /* ══════════════════════════════════════════
        STICKY HEADER
-    ──────────────────────────────────────────── */
+    ══════════════════════════════════════════ */
     #header {
       position:sticky; top:0; z-index:200;
-      background:rgba(15,17,23,.94);
-      backdrop-filter:blur(14px);
-      -webkit-backdrop-filter:blur(14px);
-      border-bottom:1px solid var(--border-1);
+      background:rgba(15,17,23,.95);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--b1);
     }
 
     .brand-bar {
       display:flex; align-items:center; justify-content:space-between;
-      padding:10px 18px;
-      max-width:820px; margin:0 auto;
-      gap:10px;
+      padding:10px 18px; gap:10px;
+      max-width:860px; margin:0 auto;
     }
 
-    /* brand */
     .brand { display:flex; align-items:center; gap:9px; }
     .brand-logo {
-      width:30px; height:30px; border-radius:8px;
+      width:30px; height:30px; border-radius:8px; flex-shrink:0;
       background:linear-gradient(135deg,#6382ff,#3a58df);
       display:flex; align-items:center; justify-content:center;
-      font-family:var(--font-en-head); font-weight:700; font-size:13px;
-      color:#fff; flex-shrink:0;
+      font-family:var(--f-head); font-weight:700; font-size:14px; color:#fff;
       box-shadow:0 0 0 1px rgba(99,130,255,.3);
     }
     .brand-name {
-      font-family:var(--font-en-head); font-weight:700; font-size:15px;
-      color:var(--txt-0); letter-spacing:-.01em;
+      font-family:var(--f-head); font-weight:700; font-size:15px;
+      color:var(--t0); letter-spacing:-.01em;
     }
     .brand-tag {
-      font-family:var(--font-mono); font-size:9px; color:var(--txt-2);
+      font-family:var(--f-mono); font-size:9px; color:var(--t2);
       letter-spacing:.07em; text-transform:uppercase;
-      background:var(--bg-2); border:1px solid var(--border-1);
-      padding:2px 7px; border-radius:4px;
+      background:var(--bg-2); border:1px solid var(--b1);
+      padding:2px 7px; border-radius:var(--r2);
     }
 
-    /* header right side */
-    .header-right { display:flex; align-items:center; gap:10px; flex-shrink:0; }
-    .updated-label {
-      font-family:var(--font-mono); font-size:9px;
-      color:var(--txt-2); letter-spacing:.04em;
-      white-space:nowrap;
+    .hdr-right { display:flex; align-items:center; gap:10px; flex-shrink:0; }
+    .hdr-date  {
+      font-family:var(--f-mono); font-size:9px; color:var(--t2);
+      letter-spacing:.04em; white-space:nowrap;
     }
 
-    /* ── LANGUAGE SWITCH ── */
-    .lang-switch {
+    /* lang switch */
+    .lang-sw {
       display:flex; align-items:center;
-      background:var(--bg-2);
-      border:1px solid var(--border-2);
-      border-radius:8px;
-      overflow:hidden;
-      flex-shrink:0;
+      background:var(--bg-2); border:1px solid var(--b2);
+      border-radius:var(--r4); overflow:hidden; flex-shrink:0;
     }
     .lang-btn {
       display:flex; align-items:center; gap:4px;
       padding:5px 11px;
       background:transparent; border:none;
-      font-size:11px; font-weight:500;
-      color:var(--txt-2);
-      cursor:pointer;
-      transition:all var(--transition);
-      white-space:nowrap;
+      font-size:11px; font-weight:500; color:var(--t2);
+      cursor:pointer; white-space:nowrap; line-height:1;
+      transition:all var(--ease);
       -webkit-tap-highlight-color:transparent;
-      line-height:1;
     }
     .lang-btn .flag { font-size:13px; }
-    .lang-btn.active {
-      background:var(--accent-bg);
-      color:var(--accent-2);
-      border-radius:6px;
-    }
-    .lang-divider {
-      width:1px; height:18px;
-      background:var(--border-2);
-      flex-shrink:0;
-    }
+    .lang-btn.active { background:var(--ac-bg); color:var(--ac2); border-radius:6px; }
+    .lang-div { width:1px; height:18px; background:var(--b2); flex-shrink:0; }
 
-    /* ────────────────────────────────────────────
-       TAB BAR
-    ──────────────────────────────────────────── */
+    /* tab bar */
     #tabbar {
       display:flex; overflow-x:auto;
       scrollbar-width:none; -ms-overflow-style:none;
-      border-top:1px solid var(--border-1);
-      max-width:820px; margin:0 auto;
+      border-top:1px solid var(--b1);
+      max-width:860px; margin:0 auto;
     }
     #tabbar::-webkit-scrollbar { display:none; }
 
     .tab-btn {
       position:relative;
       display:flex; align-items:center; gap:5px;
-      padding:10px 16px;
+      padding:10px 15px;
       background:transparent; border:none;
-      color:var(--txt-2);
+      color:var(--t2); font-family:var(--f-body);
       font-size:12.5px; font-weight:400;
       cursor:pointer; white-space:nowrap;
-      transition:color var(--transition);
-      flex-shrink:0;
+      transition:color var(--ease); flex-shrink:0;
       -webkit-tap-highlight-color:transparent;
     }
-    body.ar .tab-btn { font-family:var(--font-ar); font-size:13px; }
-    .tab-icon { font-size:11px; opacity:.5; transition:opacity var(--transition); }
-    .tab-btn:hover { color:var(--txt-1); }
-    .tab-btn.active { color:var(--txt-0); font-weight:600; }
+    body.ar .tab-btn { font-family:var(--f-ar); font-size:13px; }
+    .tab-icon { font-size:11px; opacity:.5; transition:opacity var(--ease); }
+    .tab-btn:hover { color:var(--t1); }
+    .tab-btn.active { color:var(--t0); font-weight:600; }
     .tab-btn.active .tab-icon { opacity:1; }
     .tab-btn.active::after {
-      content:'';
-      position:absolute; bottom:0; left:10px; right:10px;
+      content:''; position:absolute; bottom:0; left:10px; right:10px;
       height:2px;
-      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      background:linear-gradient(90deg,var(--ac),var(--ac2));
       border-radius:2px 2px 0 0;
     }
 
-    /* ────────────────────────────────────────────
+    /* ══════════════════════════════════════════
+       COMPANY IDENTITY CARD  (top of page)
+    ══════════════════════════════════════════ */
+    #company-id-card {
+      position:relative; z-index:1;
+      max-width:860px; margin:0 auto;
+      padding:20px 18px 0;
+    }
+    .cid-wrap {
+      background:var(--bg-card);
+      border:1px solid var(--b2);
+      border-top:2px solid var(--ac);
+      border-radius:var(--r8);
+      padding:18px 20px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(160px,1fr));
+      gap:14px 20px;
+    }
+    .cid-item {}
+    .cid-label {
+      font-family:var(--f-mono); font-size:9px; color:var(--t2);
+      letter-spacing:.07em; text-transform:uppercase;
+      margin-bottom:4px; display:block;
+    }
+    body.ar .cid-label { font-family:var(--f-ar); letter-spacing:0; font-size:10px; }
+    .cid-value {
+      font-family:var(--f-head); font-size:13.5px; font-weight:600;
+      color:var(--t0); line-height:1.4;
+    }
+    body.ar .cid-value { font-family:var(--f-ar); font-size:14px; }
+    .cid-value.accent { color:var(--ac2); }
+    .cid-badge {
+      display:inline-flex; align-items:center; gap:5px;
+      background:var(--ok-bg); border:1px solid var(--ok-brd);
+      border-radius:999px; padding:3px 10px;
+      font-family:var(--f-mono); font-size:9px; color:var(--ok-c);
+      letter-spacing:.06em; text-transform:uppercase; margin-top:2px;
+    }
+    body.ar .cid-badge { font-family:var(--f-ar); letter-spacing:0; font-size:10px; }
+
+    /* ══════════════════════════════════════════
        MAIN / PANELS
-    ──────────────────────────────────────────── */
+    ══════════════════════════════════════════ */
     main {
       position:relative; z-index:1;
-      max-width:820px; margin:0 auto;
-      padding:28px 18px 72px;
+      max-width:860px; margin:0 auto;
+      padding:22px 18px 72px;
     }
-    .panel { display:none; animation:fadeUp .3s ease forwards; }
+    .panel { display:none; animation:fadeUp .28s ease forwards; }
     .panel.active { display:block; }
-
     @keyframes fadeUp {
-      from { opacity:0; transform:translateY(10px); }
+      from { opacity:0; transform:translateY(9px); }
       to   { opacity:1; transform:translateY(0); }
     }
 
-    /* ────────────────────────────────────────────
-       SECTION HEADER
-    ──────────────────────────────────────────── */
-    .sec-head {
-      display:flex; align-items:center; gap:12px;
-      margin-bottom:26px;
-    }
+    /* section header */
+    .sec-head { display:flex; align-items:center; gap:13px; margin-bottom:26px; }
     .sec-icon {
       width:42px; height:42px; border-radius:11px;
-      background:var(--accent-bg);
-      border:1px solid var(--accent-brd);
+      background:var(--ac-bg); border:1px solid var(--ac-brd);
       display:flex; align-items:center; justify-content:center;
       font-size:19px; flex-shrink:0;
     }
     .sec-title {
-      font-family:var(--font-en-head);
+      font-family:var(--f-head);
       font-size:clamp(19px,5vw,26px);
-      font-weight:700; color:var(--txt-0);
+      font-weight:700; color:var(--t0);
       letter-spacing:-.025em; line-height:1.2;
     }
-    body.ar .sec-title { font-family:var(--font-ar); letter-spacing:0; }
+    body.ar .sec-title { font-family:var(--f-ar); letter-spacing:0; }
     .sec-line {
-      width:38px; height:2px; margin-top:6px;
-      background:linear-gradient(90deg,var(--accent),transparent);
+      width:36px; height:2px; margin-top:6px;
+      background:linear-gradient(90deg,var(--ac),transparent);
       border-radius:2px;
     }
-    body.ar .sec-line {
-      background:linear-gradient(270deg,var(--accent),transparent);
-    }
+    body.ar .sec-line { background:linear-gradient(270deg,var(--ac),transparent); }
 
-    /* ────────────────────────────────────────────
+    /* ══════════════════════════════════════════
        PROSE
-    ──────────────────────────────────────────── */
+    ══════════════════════════════════════════ */
     .prose h2 {
-      font-family:var(--font-en-head);
-      font-size:15.5px; font-weight:650;
-      color:var(--txt-0); margin:28px 0 10px;
-      letter-spacing:-.01em;
+      font-family:var(--f-head); font-size:15.5px; font-weight:650;
+      color:var(--t0); margin:28px 0 10px; letter-spacing:-.01em;
     }
-    body.ar .prose h2 { font-family:var(--font-ar); letter-spacing:0; font-size:16px; }
-
+    body.ar .prose h2 { font-family:var(--f-ar); letter-spacing:0; font-size:16px; }
     .prose h3 {
-      font-family:var(--font-mono);
-      font-size:9.5px; font-weight:500;
-      color:var(--txt-2); margin:20px 0 8px;
+      font-family:var(--f-mono); font-size:9.5px; font-weight:500;
+      color:var(--t2); margin:20px 0 8px;
       letter-spacing:.08em; text-transform:uppercase;
     }
-    body.ar .prose h3 { font-family:var(--font-ar); letter-spacing:0; font-size:11px; }
-
+    body.ar .prose h3 { font-family:var(--f-ar); letter-spacing:0; font-size:11px; }
     .prose p {
-      color:var(--txt-1); font-size:14.5px;
-      line-height:1.85; margin-bottom:13px;
+      color:var(--t1); font-size:14.5px;
+      line-height:1.87; margin-bottom:13px;
     }
-    body.ar .prose p { font-size:15px; line-height:2; }
-
-    .prose strong { color:var(--txt-0); font-weight:600; }
-    .prose a { color:var(--accent); text-decoration:none; border-bottom:1px solid transparent; transition:border-color .2s; }
-    .prose a:hover { border-bottom-color:var(--accent); }
-    .prose hr { border:none; border-top:1px solid var(--border-1); margin:26px 0; }
-
+    body.ar .prose p  { font-size:15px; line-height:2.05; }
+    .prose strong { color:var(--t0); font-weight:600; }
+    .prose a { color:var(--ac); text-decoration:none; border-bottom:1px solid transparent; transition:border-color .2s; }
+    .prose a:hover { border-bottom-color:var(--ac); }
+    .prose hr { border:none; border-top:1px solid var(--b1); margin:26px 0; }
     .prose ul { list-style:none; padding:0; margin-bottom:14px; }
     .prose ul li {
-      position:relative;
-      padding-inline-start:18px;
-      color:var(--txt-1); font-size:14.5px;
-      line-height:1.85; margin-bottom:5px;
+      position:relative; padding-inline-start:18px;
+      color:var(--t1); font-size:14.5px; line-height:1.87; margin-bottom:5px;
     }
-    body.ar .prose ul li { font-size:15px; line-height:2; }
+    body.ar .prose ul li { font-size:15px; line-height:2.05; }
     .prose ul li::before {
-      content:'';
-      position:absolute; inset-inline-start:0; top:.74em;
+      content:''; position:absolute; inset-inline-start:0; top:.75em;
       width:5px; height:5px;
-      background:var(--accent); border-radius:50%; opacity:.65;
+      background:var(--ac); border-radius:50%; opacity:.65;
     }
 
-    /* ────────────────────────────────────────────
+    /* ══════════════════════════════════════════
        CALLOUTS
-    ──────────────────────────────────────────── */
-    .callout {
-      border-radius:var(--r-md);
-      padding:13px 16px; margin:18px 0;
-    }
-    .callout.info    { background:var(--accent-bg);  border:1px solid var(--accent-brd); }
-    .callout.warn    { background:var(--warn-bg);    border:1px solid var(--warn-brd); }
-    .callout.danger  { background:var(--danger-bg);  border:1px solid var(--danger-brd); }
-    .callout.success { background:var(--success-bg); border:1px solid var(--success-brd); }
-    .callout-head {
-      display:flex; align-items:center; gap:6px;
-      margin-bottom:6px;
-    }
+    ══════════════════════════════════════════ */
+    .callout { border-radius:var(--r6); padding:13px 16px; margin:18px 0; }
+    .callout.info    { background:var(--info-bg);  border:1px solid var(--info-brd); }
+    .callout.warn    { background:var(--warn-bg);  border:1px solid var(--warn-brd); }
+    .callout.danger  { background:var(--err-bg);   border:1px solid var(--err-brd); }
+    .callout.success { background:var(--ok-bg);    border:1px solid var(--ok-brd); }
+    .callout-head { display:flex; align-items:center; gap:6px; margin-bottom:6px; }
     .callout-head span {
       font-size:10.5px; font-weight:700;
       letter-spacing:.06em; text-transform:uppercase;
     }
-    body.ar .callout-head span { font-family:var(--font-ar); letter-spacing:0; font-size:12px; }
-    .callout.info    .callout-head span { color:var(--accent-2); }
-    .callout.warn    .callout-head span { color:var(--warn-txt); }
-    .callout.danger  .callout-head span { color:var(--danger-txt); }
-    .callout.success .callout-head span { color:var(--success-txt); }
-    .callout p { font-size:13.5px; color:var(--txt-1); line-height:1.72; margin:0; }
-    body.ar .callout p { font-size:14px; line-height:1.9; }
+    body.ar .callout-head span { font-family:var(--f-ar); letter-spacing:0; font-size:12px; }
+    .callout.info    .callout-head span { color:var(--info-c); }
+    .callout.warn    .callout-head span { color:var(--warn-c); }
+    .callout.danger  .callout-head span { color:var(--err-c); }
+    .callout.success .callout-head span { color:var(--ok-c); }
+    .callout p { font-size:13.5px; color:var(--t1); line-height:1.72; margin:0; }
+    body.ar .callout p { font-size:14.5px; line-height:1.9; }
 
-    /* ────────────────────────────────────────────
-       THIRD-PARTY CARDS
-    ──────────────────────────────────────────── */
-    .tp-card {
-      background:var(--bg-card);
-      border:1px solid var(--border-2);
-      border-radius:var(--r-lg);
-      padding:18px; margin-bottom:16px;
-      transition:border-color var(--transition);
-    }
-    .tp-card:hover { border-color:var(--border-glow); }
-    .tp-head {
+    /* ══════════════════════════════════════════
+       PAYMENT STEPS
+    ══════════════════════════════════════════ */
+    .pay-steps { display:flex; flex-direction:column; gap:10px; margin:14px 0; }
+    .pay-step {
       display:flex; align-items:flex-start; gap:13px;
-      margin-bottom:14px;
+      background:var(--bg-card); border:1px solid var(--b2);
+      border-radius:var(--r6); padding:13px 15px;
     }
+    .pay-num {
+      width:26px; height:26px; border-radius:50%; flex-shrink:0;
+      background:var(--ac-bg); border:1px solid var(--ac-brd);
+      display:flex; align-items:center; justify-content:center;
+      font-family:var(--f-mono); font-size:11px; color:var(--ac2); font-weight:600;
+    }
+    .pay-body {}
+    .pay-title {
+      font-family:var(--f-head); font-weight:600; font-size:13.5px;
+      color:var(--t0); margin-bottom:3px;
+    }
+    body.ar .pay-title { font-family:var(--f-ar); }
+    .pay-desc { font-size:13px; color:var(--t1); line-height:1.7; }
+    body.ar .pay-desc { font-family:var(--f-ar); font-size:13.5px; line-height:1.9; }
+
+    /* ══════════════════════════════════════════
+       THIRD-PARTY CARDS
+    ══════════════════════════════════════════ */
+    .tp-card {
+      background:var(--bg-card); border:1px solid var(--b2);
+      border-radius:var(--r8); padding:18px; margin-bottom:14px;
+      transition:border-color var(--ease);
+    }
+    .tp-card:hover { border-color:var(--b-glow); }
+    .tp-head { display:flex; align-items:flex-start; gap:13px; margin-bottom:14px; }
     .tp-logo {
       width:44px; height:44px; border-radius:10px;
-      background:var(--bg-2); border:1px solid var(--border-1);
+      background:var(--bg-2); border:1px solid var(--b1);
       display:flex; align-items:center; justify-content:center;
       font-size:22px; flex-shrink:0;
     }
     .tp-meta { flex:1; min-width:0; }
-    .tp-name-row {
-      display:flex; align-items:center; gap:8px;
-      flex-wrap:wrap; margin-bottom:3px;
-    }
-    .tp-name { font-weight:700; font-size:15px; color:var(--txt-0); }
-    body.ar .tp-name { font-family:var(--font-ar); }
+    .tp-name-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:3px; }
+    .tp-name { font-weight:700; font-size:15px; color:var(--t0); }
+    body.ar .tp-name { font-family:var(--f-ar); }
     .chip {
       display:inline-flex; align-items:center;
-      padding:2px 9px;
-      background:var(--accent-bg); border:1px solid var(--accent-brd);
-      border-radius:999px;
-      font-family:var(--font-mono); font-size:9px;
-      color:var(--accent-2); letter-spacing:.05em; text-transform:uppercase;
+      padding:2px 9px; background:var(--ac-bg); border:1px solid var(--ac-brd);
+      border-radius:999px; font-family:var(--f-mono); font-size:9px;
+      color:var(--ac2); letter-spacing:.05em; text-transform:uppercase;
     }
-    body.ar .chip { font-family:var(--font-ar); letter-spacing:0; font-size:10px; }
-    .tp-url { font-size:11px; color:var(--accent); opacity:.75; text-decoration:none; }
-    .tp-section-label {
-      font-family:var(--font-mono); font-size:9px;
-      color:var(--txt-2); letter-spacing:.07em; text-transform:uppercase;
-      margin-bottom:7px;
+    body.ar .chip { font-family:var(--f-ar); letter-spacing:0; font-size:10px; }
+    .tp-url { font-size:11px; color:var(--ac); opacity:.75; text-decoration:none; }
+    .tp-lbl {
+      font-family:var(--f-mono); font-size:9px; color:var(--t2);
+      letter-spacing:.07em; text-transform:uppercase; margin-bottom:7px;
     }
-    body.ar .tp-section-label { font-family:var(--font-ar); letter-spacing:0; font-size:11px; }
+    body.ar .tp-lbl { font-family:var(--f-ar); letter-spacing:0; font-size:11px; }
     .tp-note {
       background:var(--bg-2);
-      border-inline-start:2px solid var(--accent-brd);
-      border-radius:0 var(--r-sm) var(--r-sm) 0;
+      border-inline-start:2px solid var(--ac-brd);
+      border-radius:0 var(--r2) var(--r2) 0;
       padding:9px 12px; margin-top:10px;
     }
-    body.ar .tp-note { border-radius:var(--r-sm) 0 0 var(--r-sm); }
-    .tp-note p { font-size:12.5px; color:var(--txt-2); line-height:1.72; margin:0; }
+    body.ar .tp-note { border-radius:var(--r2) 0 0 var(--r2); }
+    .tp-note p { font-size:12.5px; color:var(--t2); line-height:1.72; margin:0; }
     body.ar .tp-note p { font-size:13.5px; line-height:1.9; }
 
-    /* ────────────────────────────────────────────
-       COMPANY FOOTER BOX
-    ──────────────────────────────────────────── */
-    .company-box {
-      background:var(--bg-2);
-      border:1px solid var(--border-2);
-      border-radius:var(--r-lg);
-      padding:18px 20px;
-      margin-top:36px;
+    /* ══════════════════════════════════════════
+       JURISDICTION BAR
+    ══════════════════════════════════════════ */
+    .juris-bar {
+      display:flex; align-items:center; gap:10px;
+      background:var(--bg-2); border:1px solid var(--b2);
+      border-inline-start:3px solid var(--ac);
+      border-radius:0 var(--r4) var(--r4) 0;
+      padding:12px 16px; margin:18px 0;
     }
-    .company-box-title {
-      font-family:var(--font-en-head);
-      font-size:11px; font-weight:600;
-      color:var(--txt-2); letter-spacing:.07em; text-transform:uppercase;
-      margin-bottom:14px;
-      display:flex; align-items:center; gap:7px;
-    }
-    body.ar .company-box-title { font-family:var(--font-ar); letter-spacing:0; font-size:12px; }
-    .company-box-title::before {
-      content:'';
-      display:inline-block; width:3px; height:12px;
-      background:var(--accent); border-radius:2px; flex-shrink:0;
-    }
-    .company-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));
-      gap:12px;
-    }
-    .company-item label {
-      display:block;
-      font-family:var(--font-mono); font-size:9px;
-      color:var(--txt-2); letter-spacing:.06em; text-transform:uppercase;
-      margin-bottom:3px;
-    }
-    body.ar .company-item label { font-family:var(--font-ar); letter-spacing:0; font-size:10px; }
-    .company-item span {
-      font-size:13.5px; color:var(--txt-1);
-    }
-    body.ar .company-item span { font-family:var(--font-ar); font-size:14px; }
+    body.ar .juris-bar { border-inline-start:3px solid var(--ac); border-radius:var(--r4) 0 0 var(--r4); }
+    .juris-icon { font-size:18px; flex-shrink:0; }
+    .juris-text {}
+    .juris-title { font-family:var(--f-head); font-size:12px; font-weight:600; color:var(--t0); margin-bottom:2px; }
+    body.ar .juris-title { font-family:var(--f-ar); }
+    .juris-desc { font-size:12.5px; color:var(--t1); }
+    body.ar .juris-desc { font-family:var(--f-ar); font-size:13px; }
 
-    /* ────────────────────────────────────────────
+    /* ══════════════════════════════════════════
        FOOTER NAV
-    ──────────────────────────────────────────── */
-    .footer-nav {
+    ══════════════════════════════════════════ */
+    .foot-nav {
       margin-top:40px; padding-top:20px;
-      border-top:1px solid var(--border-1);
+      border-top:1px solid var(--b1);
       display:flex; flex-wrap:wrap; gap:7px;
     }
-    .fnav-btn {
+    .fn-btn {
       padding:6px 13px;
-      background:var(--bg-2); border:1px solid var(--border-1);
-      border-radius:var(--r-sm);
-      color:var(--txt-1); font-size:11.5px;
-      cursor:pointer; transition:all var(--transition);
+      background:var(--bg-2); border:1px solid var(--b1);
+      border-radius:var(--r2); color:var(--t1);
+      font-size:11.5px; cursor:pointer;
+      transition:all var(--ease);
       -webkit-tap-highlight-color:transparent;
     }
-    body.ar .fnav-btn { font-family:var(--font-ar); font-size:13px; }
-    .fnav-btn:hover,.fnav-btn.active {
-      background:var(--accent-bg); border-color:var(--accent-brd); color:var(--accent-2);
+    body.ar .fn-btn { font-family:var(--f-ar); font-size:13px; }
+    .fn-btn:hover, .fn-btn.active {
+      background:var(--ac-bg); border-color:var(--ac-brd); color:var(--ac2);
     }
-    .footer-meta {
+    .foot-meta {
       margin-top:20px;
       display:flex; flex-wrap:wrap;
-      align-items:center; justify-content:space-between; gap:8px;
+      align-items:center; justify-content:space-between; gap:10px;
     }
-    .footer-meta span {
-      font-family:var(--font-mono); font-size:9.5px;
-      color:var(--txt-2); letter-spacing:.04em;
+    .foot-meta span {
+      font-family:var(--f-mono); font-size:9.5px; color:var(--t2); letter-spacing:.04em;
     }
-    body.ar .footer-meta span { font-family:var(--font-ar); letter-spacing:0; font-size:11px; }
+    body.ar .foot-meta span { font-family:var(--f-ar); letter-spacing:0; font-size:11px; }
 
-    /* ────────────────────────────────────────────
+    /* ══════════════════════════════════════════
        RESPONSIVE
-    ──────────────────────────────────────────── */
-    @media (max-width:480px) {
+    ══════════════════════════════════════════ */
+    @media (max-width: 520px) {
       .brand-bar  { padding:9px 14px; }
       .tab-btn    { padding:9px 12px; font-size:12px; }
-      main        { padding:20px 14px 60px; }
-      .updated-label { display:none; }
-      .lang-btn   { padding:5px 9px; }
+      main        { padding:18px 14px 60px; }
+      #company-id-card { padding:14px 14px 0; }
+      .cid-wrap   { grid-template-columns:1fr 1fr; gap:12px; }
+      .hdr-date   { display:none; }
+    }
+    @media (max-width: 340px) {
+      .cid-wrap { grid-template-columns:1fr; }
     }
   </style>
 </head>
 
 <body>
 
-<!-- ══════════════════════════════════════════════════
+<!-- ══════════════════════════════════════════════
      STICKY HEADER
-═══════════════════════════════════════════════════ -->
+══════════════════════════════════════════════ -->
 <div id="header">
   <div class="brand-bar">
-
-    <!-- Brand -->
     <div class="brand">
       <div class="brand-logo">D</div>
       <span class="brand-name">Dartech</span>
-      <span class="brand-tag" data-t="legal">Legal</span>
+      <span class="brand-tag" data-t="lbl_legal">Legal</span>
     </div>
-
-    <!-- Right side -->
-    <div class="header-right">
-      <div class="updated-label" data-t="updated">Updated August 31, 2026</div>
-
-      <!-- Language Switch -->
-      <div class="lang-switch" role="group" aria-label="Language selector">
+    <div class="hdr-right">
+      <div class="hdr-date" data-t="lbl_updated">Updated: August 31, 2026</div>
+      <div class="lang-sw" role="group" aria-label="Language">
         <button class="lang-btn active" id="btn-en" onclick="setLang('en')" aria-pressed="true">
           <span class="flag">🇺🇸</span> EN
         </button>
-        <div class="lang-divider"></div>
+        <div class="lang-div"></div>
         <button class="lang-btn" id="btn-ar" onclick="setLang('ar')" aria-pressed="false">
           <span class="flag">🇪🇬</span> AR
         </button>
@@ -510,32 +485,54 @@
 
   <!-- Tab Bar -->
   <div id="tabbar">
-    <button class="tab-btn active" data-tab="terms"       onclick="switchTab('terms')">
-      <span class="tab-icon">§</span>
-      <span data-t="tab_terms">Terms &amp; Conditions</span>
+    <button class="tab-btn active" data-tab="terms"      onclick="switchTab('terms')">
+      <span class="tab-icon">§</span><span data-t="tab_terms">Terms &amp; Conditions</span>
     </button>
-    <button class="tab-btn"        data-tab="privacy"     onclick="switchTab('privacy')">
-      <span class="tab-icon">🔒</span>
-      <span data-t="tab_privacy">Privacy Policy</span>
+    <button class="tab-btn"        data-tab="payments"   onclick="switchTab('payments')">
+      <span class="tab-icon">💳</span><span data-t="tab_payments">Payments</span>
     </button>
-    <button class="tab-btn"        data-tab="aup"         onclick="switchTab('aup')">
-      <span class="tab-icon">✓</span>
-      <span data-t="tab_aup">Acceptable Use</span>
+    <button class="tab-btn"        data-tab="privacy"    onclick="switchTab('privacy')">
+      <span class="tab-icon">🔒</span><span data-t="tab_privacy">Privacy Policy</span>
     </button>
-    <button class="tab-btn"        data-tab="disclaimer"  onclick="switchTab('disclaimer')">
-      <span class="tab-icon">⚠</span>
-      <span data-t="tab_disclaimer">Disclaimer</span>
+    <button class="tab-btn"        data-tab="aup"        onclick="switchTab('aup')">
+      <span class="tab-icon">✓</span><span data-t="tab_aup">Acceptable Use</span>
     </button>
-    <button class="tab-btn"        data-tab="third"       onclick="switchTab('third')">
-      <span class="tab-icon">⬡</span>
-      <span data-t="tab_third">3rd Parties</span>
+    <button class="tab-btn"        data-tab="disclaimer" onclick="switchTab('disclaimer')">
+      <span class="tab-icon">⚠</span><span data-t="tab_disclaimer">Disclaimer</span>
+    </button>
+    <button class="tab-btn"        data-tab="third"      onclick="switchTab('third')">
+      <span class="tab-icon">⬡</span><span data-t="tab_third">3rd Parties</span>
     </button>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════
+<!-- ══════════════════════════════════════════════
+     COMPANY IDENTITY CARD
+══════════════════════════════════════════════ -->
+<div id="company-id-card">
+  <div class="cid-wrap">
+    <div class="cid-item">
+      <span class="cid-label" data-t="cid_name_lbl">Company Name</span>
+      <div class="cid-value accent">Dartech</div>
+    </div>
+    <div class="cid-item">
+      <span class="cid-label" data-t="cid_status_lbl">Legal Status</span>
+      <div class="cid-value" data-t="cid_status_val">Independent Software Developer</div>
+    </div>
+    <div class="cid-item">
+      <span class="cid-label" data-t="cid_juris_lbl">Jurisdiction</span>
+      <div class="cid-value" data-t="cid_juris_val">Arab Republic of Egypt 🇪🇬</div>
+    </div>
+    <div class="cid-item">
+      <span class="cid-label" data-t="cid_date_lbl">Last Updated</span>
+      <div class="cid-value" data-t="cid_date_val">August 31, 2026</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
      MAIN CONTENT
-═══════════════════════════════════════════════════ -->
+══════════════════════════════════════════════ -->
 <main>
 
   <!-- ── TERMS & CONDITIONS ── -->
@@ -550,7 +547,19 @@
     <div class="prose" id="prose-terms"></div>
   </section>
 
-  <!-- ── PRIVACY POLICY ── -->
+  <!-- ── PAYMENTS ── -->
+  <section id="panel-payments" class="panel">
+    <div class="sec-head">
+      <div class="sec-icon">💳</div>
+      <div>
+        <div class="sec-title" data-t="payments_title">Payment &amp; Billing</div>
+        <div class="sec-line"></div>
+      </div>
+    </div>
+    <div class="prose" id="prose-payments"></div>
+  </section>
+
+  <!-- ── PRIVACY ── -->
   <section id="panel-privacy" class="panel">
     <div class="sec-head">
       <div class="sec-icon">🔒</div>
@@ -562,7 +571,7 @@
     <div class="prose" id="prose-privacy"></div>
   </section>
 
-  <!-- ── ACCEPTABLE USE ── -->
+  <!-- ── AUP ── -->
   <section id="panel-aup" class="panel">
     <div class="sec-head">
       <div class="sec-icon">✓</div>
@@ -586,7 +595,7 @@
     <div class="prose" id="prose-disclaimer"></div>
   </section>
 
-  <!-- ── THIRD-PARTY ── -->
+  <!-- ── THIRD PARTIES ── -->
   <section id="panel-third" class="panel">
     <div class="sec-head">
       <div class="sec-icon">⬡</div>
@@ -598,345 +607,469 @@
     <div class="prose" id="prose-third"></div>
   </section>
 
-  <!-- ── COMPANY BOX ── -->
-  <div class="company-box" id="company-box">
-    <div class="company-box-title" data-t="company_title">Company Information</div>
-    <div class="company-grid">
-      <div class="company-item">
-        <label data-t="company_name_lbl">Company Name</label>
-        <span data-t="company_name_val">Dartech (placeholder)</span>
-      </div>
-      <div class="company-item">
-        <label data-t="company_entity_lbl">Legal Entity</label>
-        <span data-t="company_entity_val">To be defined</span>
-      </div>
-      <div class="company-item">
-        <label data-t="company_jurisdiction_lbl">Jurisdiction</label>
-        <span data-t="company_jurisdiction_val">To be defined</span>
-      </div>
-      <div class="company-item">
-        <label data-t="company_updated_lbl">Last Updated</label>
-        <span data-t="company_updated_val">August 31, 2026</span>
-      </div>
-    </div>
-  </div>
-
   <!-- ── FOOTER NAV ── -->
-  <div class="footer-nav" id="footer-nav">
-    <button class="fnav-btn active" data-tab="terms"      onclick="switchTab('terms')"      data-t="tab_terms">Terms</button>
-    <button class="fnav-btn"        data-tab="privacy"    onclick="switchTab('privacy')"    data-t="tab_privacy">Privacy</button>
-    <button class="fnav-btn"        data-tab="aup"        onclick="switchTab('aup')"        data-t="tab_aup">Acceptable Use</button>
-    <button class="fnav-btn"        data-tab="disclaimer" onclick="switchTab('disclaimer')" data-t="tab_disclaimer">Disclaimer</button>
-    <button class="fnav-btn"        data-tab="third"      onclick="switchTab('third')"      data-t="tab_third">3rd Parties</button>
+  <div class="foot-nav" id="footer-nav">
+    <button class="fn-btn active" data-tab="terms"      onclick="switchTab('terms')"      data-t="tab_terms">Terms</button>
+    <button class="fn-btn"        data-tab="payments"   onclick="switchTab('payments')"   data-t="tab_payments">Payments</button>
+    <button class="fn-btn"        data-tab="privacy"    onclick="switchTab('privacy')"    data-t="tab_privacy">Privacy</button>
+    <button class="fn-btn"        data-tab="aup"        onclick="switchTab('aup')"        data-t="tab_aup">Acceptable Use</button>
+    <button class="fn-btn"        data-tab="disclaimer" onclick="switchTab('disclaimer')" data-t="tab_disclaimer">Disclaimer</button>
+    <button class="fn-btn"        data-tab="third"      onclick="switchTab('third')"      data-t="tab_third">3rd Parties</button>
   </div>
 
-  <div class="footer-meta">
-    <span data-t="footer_copy">&copy; 2026 Dartech. All rights reserved.</span>
-    <span data-t="footer_contact">Contact information will be provided in a future update.</span>
+  <div class="foot-meta">
+    <span data-t="foot_copy">&copy; 2026 Dartech. All rights reserved.</span>
+    <span data-t="foot_juris">Governed by the laws of Egypt.</span>
   </div>
 
 </main>
 
-<!-- ══════════════════════════════════════════════════
-     TRANSLATIONS
-═══════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════
+     TRANSLATIONS + ENGINE
+══════════════════════════════════════════════ -->
 <script>
-/* ─── TRANSLATION OBJECT ─────────────────────── */
+/* ─────────────────────────────────────────────
+   TRANSLATION DATA
+───────────────────────────────────────────── */
 const T = {
 
-/* ════════════════════════════════════════════════
-   ENGLISH
-════════════════════════════════════════════════ */
+/* ════════════════════════════ ENGLISH ═══════ */
 en: {
-  /* UI chrome */
-  legal:                 "Legal",
-  updated:               "Updated August 31, 2026",
-  tab_terms:             "Terms &amp; Conditions",
-  tab_privacy:           "Privacy Policy",
-  tab_aup:               "Acceptable Use",
-  tab_disclaimer:        "Disclaimer",
-  tab_third:             "3rd Parties",
-  footer_copy:           "&copy; 2026 Dartech. All rights reserved.",
-  footer_contact:        "Contact information will be provided in a future update.",
-  company_title:         "Company Information",
-  company_name_lbl:      "Company Name",
-  company_name_val:      "Dartech (placeholder)",
-  company_entity_lbl:    "Legal Entity",
-  company_entity_val:    "To be defined",
-  company_jurisdiction_lbl: "Jurisdiction",
-  company_jurisdiction_val: "To be defined",
-  company_updated_lbl:   "Last Updated",
-  company_updated_val:   "August 31, 2026",
-  terms_title:           "Terms &amp; Conditions",
-  privacy_title:         "Privacy Policy",
-  aup_title:             "Acceptable Use Policy",
-  disclaimer_title:      "Disclaimer",
-  third_title:           "Third-Party Services",
+  /* chrome */
+  lbl_legal:       "Legal",
+  lbl_updated:     "Updated: August 31, 2026",
+  tab_terms:       "Terms &amp; Conditions",
+  tab_payments:    "Payments",
+  tab_privacy:     "Privacy Policy",
+  tab_aup:         "Acceptable Use",
+  tab_disclaimer:  "Disclaimer",
+  tab_third:       "3rd Parties",
+  foot_copy:       "&copy; 2026 Dartech. All rights reserved.",
+  foot_juris:      "Governed by the laws of the Arab Republic of Egypt.",
+  /* company card */
+  cid_name_lbl:    "Company Name",
+  cid_status_lbl:  "Legal Status",
+  cid_status_val:  "Independent Software Developer",
+  cid_juris_lbl:   "Jurisdiction",
+  cid_juris_val:   "Arab Republic of Egypt 🇪🇬",
+  cid_date_lbl:    "Last Updated",
+  cid_date_val:    "August 31, 2026",
+  /* section titles */
+  terms_title:     "Terms &amp; Conditions",
+  payments_title:  "Payment &amp; Billing",
+  privacy_title:   "Privacy Policy",
+  aup_title:       "Acceptable Use Policy",
+  disclaimer_title:"Disclaimer",
+  third_title:     "Third-Party Services",
 
-  /* ── TERMS PROSE ── */
+  /* ── TERMS ── */
   terms: `
-<p>These Terms and Conditions ("Terms") govern your access to and use of the <strong>Dartech</strong> AI-powered smart home assistant platform, including all related software, mobile applications, APIs, and services (collectively, the "Service"). By creating an account or accessing the Service in any manner, you acknowledge that you have read, understood, and agree to be legally bound by these Terms. If you do not agree, you must immediately discontinue use.</p>
+<p>These Terms and Conditions ("Terms") constitute a legally binding agreement between you and <strong>Dartech</strong>, an AI-powered smart home assistant service operated by an independent software developer (hereinafter "Dartech," "we," "us," or "our"). Dartech operates as an independent software service with no registered corporate entity at this time. By accessing or using the Service in any manner, you acknowledge that you have read, understood, and agree to be bound by these Terms and all applicable laws of the <strong>Arab Republic of Egypt</strong>. If you do not agree, discontinue use immediately.</p>
+
+<div class="juris-bar">
+  <div class="juris-icon">⚖️</div>
+  <div class="juris-text">
+    <div class="juris-title">Governing Law</div>
+    <div class="juris-desc">This agreement is governed by and shall be interpreted in accordance with the laws of the Arab Republic of Egypt. Any disputes arising hereunder shall be subject to the exclusive jurisdiction of the competent Egyptian courts.</div>
+  </div>
+</div>
+
 <h2>1. Eligibility</h2>
-<p>You must be at least <strong>18 years of age</strong> and legally capable of entering into a binding contract in your jurisdiction to use this Service. By using Dartech, you represent that you meet these requirements. If you are using the Service on behalf of an organization, you represent that you have the authority to bind that organization to these Terms.</p>
+<p>You must be at least <strong>18 years of age</strong> and legally capable of entering into a binding contract under Egyptian law and the laws of your own jurisdiction. By using Dartech, you represent and warrant that you meet all eligibility requirements. Use of the Service on behalf of an organization constitutes that organization's acceptance of these Terms.</p>
+
 <hr>
-<h2>2. Subscription &amp; Billing</h2>
-<p>Dartech operates on a <strong>monthly subscription model</strong>. By subscribing, you authorize Dartech to charge your chosen payment method on a recurring monthly basis at the then-current plan rate. If you subscribed through the Google Play Store, your subscription is managed and billed by Google Play in accordance with Google Play's billing policies.</p>
+
+<h2>2. Subscription Model</h2>
+<p>Access to Dartech's premium features requires an active subscription. Subscriptions are billed on a recurring monthly basis. The following channels are available for purchasing a subscription:</p>
 <ul>
-  <li>Subscriptions automatically renew at the end of each billing cycle unless cancelled prior to the renewal date.</li>
-  <li>You may cancel your subscription at any time through your account settings, the Google Play Store, or by contacting support.</li>
-  <li>Cancellation takes effect at the end of the current billing period; you retain access until that date.</li>
-  <li>Dartech reserves the right to modify pricing with at least <strong>14 days' advance notice</strong> sent to your registered email address.</li>
-  <li>Any applicable taxes, levies, or duties imposed by law are your sole responsibility and are in addition to subscription fees.</li>
+  <li><strong>Google Play Store:</strong> Where available in your country and on your device, subscriptions may be purchased and managed directly through the Google Play Store. In this case, billing is handled by Google in accordance with Google Play's billing policies and terms of service.</li>
+  <li><strong>External Payment via Dartech's Website:</strong> Where Google Play billing is unavailable or at the user's preference, subscriptions may be purchased through an external payment channel operated by Dartech. Payment is processed via local payment methods or accepted external payment providers.</li>
 </ul>
+<p><strong>Important:</strong> The mobile application itself does not process payments directly. All payment processing occurs either through Google Play's infrastructure or through Dartech's external payment channel as described above.</p>
+
 <h2>3. Refund Policy</h2>
-<p>All payments made to Dartech are <strong>non-refundable except where required by applicable law or platform policies (including Google Play)</strong>. This applies to subscription fees, one-time purchases, add-on features, and any other charges processed through the platform. No refunds or credits will be issued for partial subscription periods, unused features, or account terminations initiated by Dartech due to violations of these Terms, except as required by law.</p>
-<p>If you subscribed via Google Play, refund requests are subject to Google Play's refund policies. To dispute a charge, please refer to the platform through which you subscribed, or contact Dartech support. <strong>Contact information will be provided in a future update.</strong></p>
+<p>All payments made to Dartech are <strong>non-refundable except where required by applicable law or the policies of the payment platform used</strong> (including Google Play's refund policies). No refunds or credits are issued for partial subscription periods, unused service time, or account terminations resulting from violations of these Terms, except as mandated by the laws of Egypt or other applicable consumer protection regulations. To dispute a charge, contact Dartech support through the channel provided at the time of purchase.</p>
+
 <hr>
+
 <h2>4. Usage Limits &amp; Fair Use</h2>
-<p>Each subscription tier includes defined usage limits for API calls, AI queries, smart home commands, and connected device operations. These limits exist to maintain service quality for all users.</p>
+<p>Each subscription tier includes defined limits on API calls, AI queries, smart home commands, and device operations. These limits exist to ensure equitable service quality for all users.</p>
 <ul>
-  <li><strong>Excessive usage</strong> that substantially exceeds plan limits or degrades service performance for other users may result in temporary throttling, restriction of features, or suspension of your account.</li>
-  <li>Automated scripts, bots, or programs that generate disproportionate server load are strictly prohibited unless explicitly authorized under an enterprise agreement.</li>
-  <li>Dartech will make reasonable efforts to notify you before restricting access due to usage concerns.</li>
-  <li>Persistent abuse of usage limits may result in permanent account termination without refund, except as required by applicable law.</li>
+  <li><strong>Excessive or abusive usage</strong> that substantially exceeds plan limits or degrades performance for other users may result in temporary throttling, feature restriction, or account suspension, without prior notice where immediate action is necessary.</li>
+  <li>Automated scripts, bots, or programs generating disproportionate server load are prohibited unless explicitly authorized under an enterprise agreement.</li>
+  <li>Persistent abuse of usage limits may result in permanent account termination. Refunds in such cases are subject to Section 3.</li>
 </ul>
-<h2>5. AI Limitations &amp; No Accuracy Guarantee</h2>
-<p>The AI features within Dartech are powered by third-party large language models, including OpenAI. You acknowledge and accept the following inherent limitations:</p>
+
+<h2>5. AI Limitations</h2>
+<p>The AI capabilities of Dartech are powered by third-party language model APIs, including OpenAI. You acknowledge and accept that:</p>
 <ul>
-  <li>AI-generated responses, suggestions, and automation outputs <strong>may be inaccurate, incomplete, misleading, or outdated</strong>.</li>
-  <li>Dartech does not warrant that AI outputs are factually correct, appropriate, or suitable for any particular purpose.</li>
-  <li>You are solely responsible for reviewing, validating, and acting upon any AI-generated content before applying it to your smart home environment or any other system. <strong>You must verify all actions before execution.</strong></li>
-  <li>AI outputs must never be used as a substitute for professional advice in legal, medical, safety, financial, or emergency contexts.</li>
-  <li>Dartech AI is <strong>not designed for safety-critical automation</strong> and must not be used as a component in any life-safety, emergency response, or critical infrastructure system.</li>
-  <li>Dartech AI is <strong>not suitable for emergency systems</strong>. Do not rely on it for fire, medical, security, or similar emergencies.</li>
+  <li>AI-generated responses <strong>may be inaccurate, incomplete, misleading, or outdated</strong> and are provided for informational and convenience purposes only.</li>
+  <li><strong>You must independently verify all AI-generated content and smart home commands before execution.</strong> Dartech is not responsible for any automated action taken without your prior review and verification.</li>
+  <li>Dartech AI is not designed or certified for safety-critical automation, emergency response, or life-safety systems of any kind.</li>
+  <li>AI outputs do not constitute professional legal, medical, financial, or safety advice.</li>
 </ul>
+
 <hr>
+
 <h2>6. User Responsibilities</h2>
-<p>You are solely and fully responsible for:</p>
 <ul>
-  <li>All actions taken through your account, whether authorized by you or not.</li>
-  <li>The security and confidentiality of your login credentials. If you suspect unauthorized access, contact Dartech support immediately. <strong>Contact information will be provided in a future update.</strong></li>
-  <li>Ensuring your smart home devices, networks, and connected systems comply with applicable laws and manufacturer guidelines.</li>
-  <li>Any consequences arising from smart home commands or automations executed through the Service.</li>
-  <li>Compliance with all applicable local, national, and international laws and regulations.</li>
+  <li>You are solely and fully responsible for all activity conducted through your account.</li>
+  <li>You must maintain the confidentiality and security of your login credentials at all times.</li>
+  <li>You are responsible for ensuring that your use of connected smart home devices complies with all applicable laws, regulations, and manufacturer guidelines.</li>
+  <li>You bear full responsibility for any consequences — including physical, financial, or operational consequences — arising from smart home commands or automations executed through the Service.</li>
+  <li>You must comply with all applicable Egyptian laws, international regulations, and the terms of any third-party service accessed through Dartech.</li>
 </ul>
-<h2>7. No Guarantee of Uptime or Error-Free Service</h2>
-<p>Dartech provides the Service on an <strong>"as available"</strong> basis. We do not guarantee continuous, uninterrupted, or error-free access. Scheduled and unscheduled maintenance, third-party outages (including OpenAI, Home Assistant, and Brave Search), network failures, or unforeseen technical issues may cause service degradation or unavailability. To the maximum extent permitted by applicable law, Dartech shall not be liable for losses or inconveniences resulting from such interruptions.</p>
+
+<h2>7. Service Availability</h2>
+<p>Dartech provides the Service on an <strong>"as available"</strong> basis. We do not guarantee continuous, uninterrupted, or error-free access. Service availability may be affected by scheduled maintenance, third-party outages (including OpenAI, Home Assistant, and Brave Search), network failures, or other unforeseen events. To the maximum extent permitted by Egyptian law, Dartech shall not be liable for losses or damages resulting from service interruptions.</p>
+
 <hr>
+
 <h2>8. Intellectual Property</h2>
-<p>All content, branding, software, algorithms, and interfaces comprising the Dartech platform are the exclusive intellectual property of Dartech or its licensors. You are granted a limited, non-exclusive, non-transferable, revocable license to use the Service for personal, non-commercial purposes in accordance with these Terms. You may not copy, modify, distribute, sell, sublicense, reverse engineer, or create derivative works from any part of the Service.</p>
+<p>All content, branding, software, algorithms, user interfaces, and documentation comprising the Dartech platform are the intellectual property of Dartech or its licensors and are protected under applicable law. You are granted a limited, revocable, non-exclusive, non-transferable license to use the Service for personal, non-commercial purposes in accordance with these Terms. You may not copy, modify, distribute, reverse engineer, sublicense, or create derivative works from any part of the Service.</p>
+
 <h2>9. Termination</h2>
-<p>Dartech reserves the right to suspend or permanently terminate your account at any time, with or without notice, for violations of these Terms, suspected fraudulent activity, or any reason deemed necessary to protect the integrity of the platform or its users. Upon termination, your right to access the Service immediately ceases. Refunds upon termination are governed by Section 3 of these Terms.</p>
-<h2>10. Google Play Compliance</h2>
-<p>If you download or access the Service through the Google Play Store, your use is also subject to Google Play's Terms of Service and applicable Google policies. In the event of a conflict between these Terms and Google Play's policies, Google Play's policies shall prevail solely with respect to the distribution and billing aspects of the Service.</p>
-<h2>11. Governing Law</h2>
-<p>These Terms shall be governed by and construed in accordance with applicable law. Any disputes shall be subject to the exclusive jurisdiction of the competent courts in the applicable jurisdiction, to the maximum extent permitted by applicable law.</p>
-<h2>12. Changes to These Terms</h2>
-<p>Dartech reserves the right to modify these Terms at any time. Material changes will be communicated via email or in-app notification at least <strong>7 days</strong> before taking effect. Continued use of the Service after the effective date constitutes your acceptance of the revised Terms.</p>
+<p>Dartech reserves the right to suspend or permanently terminate your account, with or without notice, for any material violation of these Terms, fraudulent activity, or actions that jeopardize the security or integrity of the Service. Upon termination, all rights granted to you immediately cease. Refunds upon termination are governed by Section 3.</p>
+
+<h2>10. Modifications to These Terms</h2>
+<p>Dartech reserves the right to amend these Terms at any time. Material amendments will be communicated via in-app notification or the contact method registered with your account, at least <strong>7 calendar days</strong> before taking effect. Your continued use of the Service after the effective date constitutes acceptance of the revised Terms.</p>
   `,
 
-  /* ── PRIVACY PROSE ── */
+  /* ── PAYMENTS ── */
+  payments: `
+<p>This section explains in detail how Dartech handles subscriptions, billing, accepted payment methods, and access verification. By subscribing to Dartech, you agree to the payment terms described below, which supplement the Terms &amp; Conditions.</p>
+
+<h2>1. Subscription Channels</h2>
+<p>Dartech offers subscription access through the following channels. The available channel may vary depending on your device, geographic region, and the version of the application you are using:</p>
+
+<div class="pay-steps">
+  <div class="pay-step">
+    <div class="pay-num">1</div>
+    <div class="pay-body">
+      <div class="pay-title">Google Play Store (In-App)</div>
+      <div class="pay-desc">Where available in your region and on an eligible Android device, you may subscribe directly through the Google Play Store. Billing, renewal, cancellation, and any applicable refunds are managed entirely by Google in accordance with Google Play's billing policies. Dartech does not have access to your payment card details when billing is processed through Google Play.</div>
+    </div>
+  </div>
+  <div class="pay-step">
+    <div class="pay-num">2</div>
+    <div class="pay-body">
+      <div class="pay-title">External Payment via Dartech Website</div>
+      <div class="pay-desc">Where Google Play is unavailable or not preferred, subscriptions may be purchased through Dartech's external payment channel. Accepted methods include local payment methods and external payment providers as made available at the time of purchase. The mobile application does not process payments directly — all external transactions occur through Dartech's dedicated payment portal.</div>
+    </div>
+  </div>
+</div>
+
+<h2>2. External Payment — Access Verification</h2>
+<p>For subscriptions processed through Dartech's external payment channel:</p>
+<ul>
+  <li>After completing payment, you may be required to <strong>provide confirmation of your transaction</strong> (such as a transaction reference number or screenshot) to the Dartech support channel indicated in the payment portal.</li>
+  <li>Access to premium features is granted <strong>only after successful verification</strong> of your payment by Dartech. Verification is typically completed within 24 hours of receiving your confirmation.</li>
+  <li>Dartech reserves the right to request additional verification in cases where the payment confirmation is unclear or cannot be authenticated.</li>
+  <li>Submitting false or fraudulent payment confirmations constitutes a material breach of these Terms and may result in immediate account termination and referral to the appropriate authorities.</li>
+</ul>
+
+<div class="callout warn">
+  <div class="callout-head"><span>⚠ Important — External Payments</span></div>
+  <p>Dartech does not store sensitive financial data such as full card numbers, bank account numbers, or banking credentials. Payment confirmations provided for verification purposes (e.g., transaction reference numbers) are used solely to confirm and activate your subscription and are handled in accordance with this Privacy Policy.</p>
+</div>
+
+<h2>3. Billing Cycle &amp; Renewal</h2>
+<ul>
+  <li>Subscriptions are billed on a <strong>recurring monthly basis</strong> starting from the date of your initial purchase.</li>
+  <li>Subscriptions renew automatically at the end of each billing cycle unless cancelled prior to the renewal date.</li>
+  <li>For Google Play subscriptions, renewal is managed by Google and you will be notified in accordance with Google's notification policies.</li>
+  <li>For external subscriptions, renewal instructions and payment deadlines will be communicated through the contact method associated with your account.</li>
+  <li>Failure to complete renewal payment within the applicable grace period may result in suspension of premium access until the subscription is renewed.</li>
+</ul>
+
+<h2>4. Pricing &amp; Changes</h2>
+<ul>
+  <li>Current subscription pricing is displayed at the point of purchase in the applicable channel.</li>
+  <li>Dartech reserves the right to modify subscription pricing. You will be notified of any price changes at least <strong>14 calendar days</strong> before the change takes effect.</li>
+  <li>Continued use of the Service after a price change takes effect constitutes your acceptance of the new pricing.</li>
+</ul>
+
+<h2>5. Refunds</h2>
+<p>All payments are <strong>non-refundable except where required by applicable law or the policies of the payment platform used</strong>. Specifically:</p>
+<ul>
+  <li><strong>Google Play subscriptions:</strong> Refunds are subject to Google Play's refund policies. Dartech has no direct control over refunds processed through Google Play.</li>
+  <li><strong>External payments:</strong> Refunds are evaluated on a case-by-case basis and are only issued where mandated by applicable Egyptian consumer protection law or in the event of a verified billing error by Dartech.</li>
+  <li>No refunds are provided for partial subscription periods, downtime caused by third-party service providers, or account terminations resulting from violations of these Terms.</li>
+</ul>
+
+<h2>6. Taxes</h2>
+<p>Subscription prices may be exclusive of applicable taxes, levies, or duties. Where required by law, applicable taxes will be added to your subscription price at checkout. You are responsible for any taxes applicable to your subscription under the laws of your jurisdiction.</p>
+
+<div class="callout success">
+  <div class="callout-head"><span>✓ Data Security</span></div>
+  <p>Dartech does not collect, store, or have access to your full payment card number, CVV, bank account details, or any other sensitive financial credentials. All payment data is processed exclusively by Google Play or the external payment provider used at checkout, in accordance with their respective security standards.</p>
+</div>
+  `,
+
+  /* ── PRIVACY ── */
   privacy: `
-<p>At <strong>Dartech</strong>, we are deeply committed to protecting your privacy. This Privacy Policy explains what data we collect, how it is handled, and your rights as a user. We have designed our architecture with a <strong>privacy-first</strong> approach — we collect the minimum data necessary and never build profiles for advertising or data brokerage purposes.</p>
+<p>This Privacy Policy describes how <strong>Dartech</strong>, operated as an independent software service under the laws of the <strong>Arab Republic of Egypt</strong>, collects, uses, and protects information in connection with the Dartech smart home assistant platform. By using the Service, you consent to the data practices described herein.</p>
 <p><em>Last Updated: August 31, 2026</em></p>
+
 <h2>1. Data We Do NOT Collect or Store</h2>
-<p>We want to be fully transparent about what we <strong>do not</strong> do:</p>
+<p>Dartech has been designed with a privacy-first approach. The following categories of data are explicitly <strong>not collected, stored, or retained</strong> by Dartech:</p>
 <ul>
-  <li><strong>No voice recordings stored.</strong> If voice input is used, audio is processed in real-time and immediately discarded. We retain no audio files or voice prints whatsoever.</li>
-  <li><strong>No conversation history stored.</strong> Your interactions with the AI assistant are processed in context and are not persisted to our servers after the session ends.</li>
-  <li><strong>No personal profiling.</strong> We do not build behavioral profiles, interest graphs, or advertising identifiers based on your usage patterns.</li>
-  <li><strong>No sale of personal data.</strong> We will never sell, rent, or trade your personal information to any third party for commercial gain.</li>
-  <li><strong>No biometric data.</strong> We do not collect fingerprints, facial recognition data, or any other biometric identifiers.</li>
+  <li><strong>Voice recordings:</strong> If voice input functionality is used, all audio data is processed in real-time and discarded immediately upon processing. No audio files, voice prints, or recordings of any kind are stored on Dartech's servers.</li>
+  <li><strong>Conversation history:</strong> AI assistant interactions are processed within the context of an active session only. Conversation content is not persisted to Dartech's servers after the session concludes.</li>
+  <li><strong>Sensitive financial data:</strong> Dartech does not store full payment card numbers, card verification values (CVV), bank account numbers, banking credentials, or any other sensitive financial data. Payment processing is delegated entirely to Google Play or external payment providers.</li>
+  <li><strong>Behavioral advertising profiles:</strong> Dartech does not build user profiles for advertising, data brokerage, or any commercial purpose unrelated to service delivery.</li>
+  <li><strong>Biometric identifiers:</strong> No fingerprints, facial recognition data, iris scans, or other biometric data are collected.</li>
 </ul>
+
 <hr>
+
 <h2>2. Data We Do Collect</h2>
-<p>We collect only what is operationally necessary to provide the Service:</p>
+<p>We collect only the minimum data necessary to deliver and maintain the Service:</p>
 <ul>
-  <li><strong>Account information:</strong> Email address, hashed password, and subscription status.</li>
-  <li><strong>Device metadata:</strong> Smart home device identifiers and configuration data you explicitly enter.</li>
-  <li><strong>Usage metrics:</strong> Aggregate, anonymized statistics (e.g., number of commands issued — not the content).</li>
-  <li><strong>Technical logs:</strong> Error logs and crash reports retained for a maximum of 30 days, containing no personal content.</li>
-  <li><strong>Payment metadata:</strong> Transaction identifiers and billing dates only. Full payment card data is processed exclusively by our payment processor or Google Play and is never stored on Dartech servers.</li>
+  <li><strong>Account data:</strong> Email address, hashed password, subscription status, and account creation date.</li>
+  <li><strong>Device configuration data:</strong> Smart home device identifiers and integration settings that you explicitly configure within the application.</li>
+  <li><strong>Payment confirmation data:</strong> For subscriptions processed through our external payment channel, we may collect transaction reference identifiers and confirmation documents provided by you for the sole purpose of verifying and activating your subscription. This data does not include full card or account details.</li>
+  <li><strong>Aggregate usage metrics:</strong> Anonymized, non-personally identifiable statistics (e.g., number of commands issued per session) used solely to improve service reliability and performance.</li>
+  <li><strong>Technical diagnostic logs:</strong> Error reports and crash logs retained for a maximum of 30 days, containing no personal content or conversation data.</li>
 </ul>
+
 <h2>3. Data Transmitted to Third-Party APIs</h2>
 <div class="callout warn">
-  <div class="callout-head"><span>⚠ Important Notice</span></div>
-  <p>Your commands, queries, and smart home instructions may be transmitted to third-party services for processing. This is fundamental to how the Service operates. By using Dartech, you explicitly consent to this data transmission. Each third party operates under its own independent privacy policy.</p>
+  <div class="callout-head"><span>⚠ Third-Party Data Transmission</span></div>
+  <p>Your commands, text queries, and smart home instructions are transmitted to third-party service providers for processing. This is a fundamental requirement of the Service's operation. By using Dartech, you explicitly consent to this transmission. Each third-party provider operates under its own independent privacy policy.</p>
 </div>
-<p>Specifically, data may be sent to:</p>
 <ul>
-  <li><strong>OpenAI (openai.com)</strong> — Text queries processed by OpenAI's API to generate AI responses.</li>
-  <li><strong>Brave Search (brave.com)</strong> — Search queries forwarded for real-time information retrieval.</li>
-  <li><strong>Home Assistant</strong> — Smart home commands transmitted to your Home Assistant instance.</li>
-  <li><strong>Google Play</strong> — If you subscribed via Google Play, billing and purchase data is managed by Google in accordance with Google's privacy policy.</li>
+  <li><strong>OpenAI</strong> — Text-based AI queries are processed via OpenAI's API.</li>
+  <li><strong>Brave Search</strong> — Search queries are forwarded for real-time information retrieval.</li>
+  <li><strong>Home Assistant</strong> — Smart home commands are transmitted to your configured Home Assistant instance.</li>
+  <li><strong>Google Play</strong> — If you subscribe via Google Play, purchase and subscription data is managed by Google in accordance with Google's privacy policy.</li>
 </ul>
-<p>Dartech is not responsible for the data practices of these providers once data has been transmitted to them.</p>
+<p>Dartech exercises no control over the data handling practices of these providers once data has been transmitted to them and is not responsible for their actions.</p>
+
 <hr>
+
 <h2>4. How We Use Your Data</h2>
 <ul>
   <li>To authenticate your identity and manage your subscription account.</li>
-  <li>To process and route your smart home commands and AI queries.</li>
-  <li>To detect and prevent fraudulent, abusive, or unauthorized activity.</li>
-  <li>To communicate service updates, security alerts, and policy changes.</li>
-  <li>To improve service reliability through anonymized diagnostic data.</li>
+  <li>To process and route smart home commands and AI queries on your behalf.</li>
+  <li>To verify external payment transactions and activate subscription access.</li>
+  <li>To detect, investigate, and prevent fraudulent or unauthorized activity.</li>
+  <li>To communicate service updates, billing notifications, and policy changes.</li>
+  <li>To improve service reliability through anonymized diagnostic analysis.</li>
 </ul>
+
 <h2>5. Data Retention</h2>
-<p>Account data is retained for the duration of your active subscription and for up to <strong>90 days</strong> after account deletion to comply with legal obligations and resolve disputes. Technical logs are purged after <strong>30 days</strong>. Upon a verified deletion request, all personal data will be permanently removed from our systems within 30 days, except where retention is required by law.</p>
+<p>Account data is retained for the duration of your active subscription and for up to <strong>90 days</strong> following account deletion, to comply with legal obligations under Egyptian law and to resolve outstanding disputes. Technical logs are permanently deleted after <strong>30 days</strong>. Payment confirmation documents submitted for external payment verification are retained only for the period necessary to confirm and activate your subscription, and are deleted thereafter unless retention is required by applicable law.</p>
+
 <h2>6. Your Rights</h2>
-<p>Depending on your jurisdiction, you may have the right to: access a copy of your data; request correction of inaccurate information; request deletion ("right to be forgotten"); object to or restrict certain processing; and receive your data in a portable, machine-readable format. To exercise any of these rights, please contact Dartech support. <strong>Contact information will be provided in a future update.</strong></p>
+<p>Subject to applicable Egyptian law, you have the right to: request access to the personal data we hold about you; request correction of inaccurate data; request deletion of your personal data; object to or restrict certain processing activities; and receive your data in a structured, portable format. To exercise any of these rights, please contact Dartech through the official support channel provided in the application or at the point of service.</p>
+
 <h2>7. Security</h2>
-<p>We implement industry-standard security measures including TLS encryption for data in transit, AES-256 encryption for data at rest, regular security audits, and strict access controls. However, no system is completely secure, and we cannot guarantee absolute security. To the maximum extent permitted by applicable law, you use the Service at your own risk.</p>
+<p>Dartech implements industry-standard security measures including TLS/HTTPS encryption for all data transmitted in transit, restricted access controls for stored account data, and periodic security reviews. No digital system can guarantee absolute security. To the maximum extent permitted by Egyptian law, you acknowledge that your use of the Service is at your own risk.</p>
+
 <h2>8. Children's Privacy</h2>
-<p>The Service is not directed at individuals under the age of 18. We do not knowingly collect personal data from minors. If you believe a minor has provided personal information to us, please contact Dartech support immediately. <strong>Contact information will be provided in a future update.</strong></p>
+<p>The Service is strictly intended for users aged 18 and above. Dartech does not knowingly collect personal data from individuals under the age of 18. If you believe that a minor has accessed the Service or provided personal data, please contact Dartech support immediately so that appropriate action can be taken.</p>
+
+<h2>9. Changes to This Policy</h2>
+<p>Dartech may update this Privacy Policy from time to time to reflect changes in service features, legal requirements under Egyptian law, or data handling practices. Material changes will be communicated via in-app notification at least <strong>7 calendar days</strong> before taking effect. Continued use of the Service constitutes your acceptance of the updated policy.</p>
   `,
 
-  /* ── AUP PROSE ── */
+  /* ── AUP ── */
   aup: `
-<p>This Acceptable Use Policy ("AUP") defines the boundaries of permitted behavior on the Dartech platform. By using the Service, you agree not to engage in any prohibited activity described herein. Violations may result in immediate account suspension or termination without refund, except as required by applicable law. Dartech reserves the right to investigate suspected violations and cooperate with law enforcement authorities as appropriate.</p>
-<h2>1. Illegal Activities</h2>
+<p>This Acceptable Use Policy ("AUP") sets out the rules of conduct that govern all use of the Dartech platform. By accessing or using the Service, you agree to comply with this AUP in full. Violations may result in immediate account suspension, permanent termination, or referral to the competent Egyptian or international authorities, depending on the nature of the violation. Dartech reserves the right to investigate all suspected violations.</p>
+
+<h2>1. Prohibited Activities — Illegal Conduct</h2>
 <ul>
-  <li>Using the Service to plan, facilitate, or execute any activity that violates applicable local, national, or international law.</li>
-  <li>Transmitting, storing, or processing content that is unlawful, harmful, threatening, abusive, harassing, defamatory, or obscene.</li>
-  <li>Engaging in unauthorized surveillance, stalking, or monitoring of individuals through connected smart home devices.</li>
-  <li>Using Dartech to circumvent digital rights management systems or copy-protection mechanisms.</li>
-  <li>Facilitating any form of fraud, identity theft, money laundering, or deceptive practices.</li>
+  <li>Using the Service to plan, facilitate, execute, or assist in any activity that violates Egyptian law, international law, or the laws of your jurisdiction.</li>
+  <li>Transmitting, distributing, or storing content that is unlawful, defamatory, obscene, threatening, harassing, or that infringes upon any person's rights.</li>
+  <li>Using connected smart home integrations to conduct unauthorized surveillance, stalking, or privacy violations against any individual.</li>
+  <li>Facilitating fraud, identity theft, money laundering, or any other deceptive financial practice.</li>
+  <li>Circumventing digital rights management (DRM) mechanisms or intellectual property protections through use of the Service.</li>
 </ul>
+
 <hr>
-<h2>2. System Abuse &amp; Overload</h2>
+
+<h2>2. Abuse &amp; Excessive Usage</h2>
+<p>Dartech provides service under defined usage limits. The following constitute abuse of the platform and may result in throttling, suspension, or permanent termination of your account:</p>
 <ul>
-  <li><strong>Do not</strong> deliberately overload, flood, or stress-test the Service or its underlying infrastructure without explicit written authorization.</li>
-  <li><strong>Do not</strong> deploy automated bots, scripts, or programs that send requests at a rate exceeding normal human interaction patterns.</li>
-  <li><strong>Do not</strong> circumvent, disable, or attempt to bypass rate limits, throttling mechanisms, or usage quotas.</li>
-  <li><strong>Do not</strong> scrape, harvest, or bulk-extract data from the platform through automated means.</li>
-  <li><strong>Do not</strong> resell, sublicense, or share account credentials with others to aggregate usage capacity.</li>
+  <li>Sending API requests at rates that substantially exceed those of normal human interaction, whether through manual or automated means.</li>
+  <li>Deliberately overloading Dartech's infrastructure through flooding, stress testing, denial-of-service activities, or any similar technique, without prior written authorization from Dartech.</li>
+  <li>Deploying automated bots, scripts, or crawlers that consume a disproportionate share of platform resources relative to your subscription tier.</li>
+  <li>Circumventing, disabling, or manipulating rate limits, usage quotas, or throttling controls imposed by Dartech.</li>
+  <li>Sharing account credentials with unauthorized users or reselling account access in any form.</li>
+  <li>Engaging in any behavior that degrades the service quality experienced by other Dartech users.</li>
 </ul>
-<h2>3. Hacking &amp; Reverse Engineering</h2>
+
+<h2>3. Reverse Engineering &amp; Security Violations</h2>
+<p><strong>Reverse engineering of any part of the Dartech platform is strictly prohibited.</strong> Specifically, you must not:</p>
 <ul>
-  <li>Attempting to gain unauthorized access to Dartech systems, servers, databases, or user accounts is strictly prohibited.</li>
-  <li>Probing, scanning, or testing the vulnerability of any Dartech network or system without explicit written authorization.</li>
-  <li>Reverse engineering, decompiling, disassembling, or attempting to derive source code from any part of the platform.</li>
-  <li>Intercepting, monitoring, or decrypting network communications between the Service and its backend systems.</li>
-  <li>Injecting malicious code, exploits, viruses, trojans, worms, or any harmful software into the platform or connected devices.</li>
-  <li>Using the AI assistant to generate malicious code, attack vectors, or exploits targeting any system.</li>
+  <li>Reverse engineer, decompile, disassemble, or attempt to derive the source code, algorithms, or structure of any Dartech software or service.</li>
+  <li>Probe, scan, or test the vulnerability of Dartech systems, networks, or APIs without explicit written authorization.</li>
+  <li>Attempt to gain unauthorized access to any Dartech server, database, account, or internal system.</li>
+  <li>Intercept, monitor, decrypt, or manipulate any network communication between the Dartech application and its backend systems.</li>
+  <li>Introduce or attempt to introduce malicious code, malware, ransomware, trojans, or exploits into the Dartech platform or any connected smart home system.</li>
+  <li>Use the Dartech AI assistant to generate attack code, exploit instructions, or any output intended to compromise any computer system.</li>
 </ul>
+
 <hr>
+
 <h2>4. Smart Home Misuse</h2>
 <ul>
-  <li>Issuing commands through Dartech that could endanger the physical safety of any person.</li>
-  <li>Accessing or controlling smart home devices belonging to another individual without their explicit, informed consent.</li>
-  <li>Using smart home integration features to violate another person's privacy within their own home.</li>
-  <li>Attempting to use Dartech for safety-critical automation, emergency alert systems, or life-safety functions.</li>
+  <li>Issuing commands through Dartech that could endanger the physical safety or wellbeing of any person.</li>
+  <li>Accessing, monitoring, or controlling smart home devices that belong to another individual without that person's explicit, informed, and ongoing consent.</li>
+  <li>Attempting to use Dartech as a component in safety-critical systems, emergency response systems, medical monitoring, or any application where a malfunction could cause harm.</li>
+  <li>Using smart home automation features to harass, intimidate, surveil, or harm any individual.</li>
 </ul>
+
 <h2>5. AI Content Standards</h2>
-<p>When interacting with the AI assistant, you must not submit prompts or content that:</p>
+<p>When interacting with the Dartech AI assistant, the following are strictly prohibited:</p>
 <ul>
-  <li>Attempts to "jailbreak," manipulate, or bypass the AI's safety guardrails.</li>
-  <li>Seeks to generate illegal content or content that glorifies violence, terrorism, or abuse.</li>
-  <li>Is designed to deceive or manipulate other individuals through AI-generated misinformation.</li>
+  <li>Submitting prompts designed to circumvent, jailbreak, or override the AI's safety constraints or content policies.</li>
+  <li>Attempting to extract training data, system prompts, or internal model parameters from the AI system.</li>
+  <li>Requesting generation of illegal content, content depicting the abuse of minors, or content that glorifies or incites violence, terrorism, or self-harm.</li>
+  <li>Using AI-generated content to deceive, impersonate, or manipulate others.</li>
 </ul>
+
 <h2>6. Consequences of Violation</h2>
-<p>Violations of this AUP may result in any combination of: immediate suspension or permanent termination to the extent permitted by applicable law; referral to law enforcement if illegal activity is suspected; legal action to recover damages; and reporting to relevant regulatory authorities.</p>
-<h2>7. Reporting Violations</h2>
-<p>If you become aware of any misuse of the Dartech platform or potential security vulnerabilities, please report it responsibly through our support channel. <strong>Contact information will be provided in a future update.</strong> We take all reports seriously and will respond within 48 business hours.</p>
+<p>Violations of this AUP may result in one or more of the following actions, at Dartech's sole discretion and to the extent permitted by applicable Egyptian law:</p>
+<ul>
+  <li>Immediate suspension or permanent termination of your account without refund (subject to Section 3 of the Terms &amp; Conditions).</li>
+  <li>Referral of evidence of illegal activity to the Egyptian cybercrime authorities or other competent law enforcement bodies.</li>
+  <li>Legal proceedings to recover financial damages caused by the violation.</li>
+  <li>Notification of relevant regulatory bodies where required by law.</li>
+</ul>
+
+<h2>7. Reporting</h2>
+<p>If you identify a potential violation of this AUP, a security vulnerability, or any misuse of the Dartech platform, please report it responsibly through Dartech's official support channel provided within the application. All reports are treated confidentially and will be reviewed within <strong>48 business hours</strong>.</p>
   `,
 
-  /* ── DISCLAIMER PROSE ── */
+  /* ── DISCLAIMER ── */
   disclaimer: `
 <h2>1. Service Provided "As Is"</h2>
-<p>The Dartech platform, including all software, AI features, integrations, and related services, is provided on an <strong>"as is" and "as available" basis</strong>, without any warranty of any kind, either express or implied. To the maximum extent permitted by applicable law, Dartech expressly disclaims all warranties, including but not limited to:</p>
+<p>The Dartech platform, including all AI features, smart home integrations, third-party connections, and associated services, is provided strictly on an <strong>"as is" and "as available" basis</strong>. To the maximum extent permitted by the laws of the Arab Republic of Egypt and other applicable law, Dartech expressly disclaims all representations, warranties, and conditions of any kind, whether express, implied, or statutory, including but not limited to:</p>
 <ul>
-  <li>Implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</li>
-  <li>Warranties regarding the accuracy, reliability, completeness, or timeliness of any content or AI-generated output.</li>
-  <li>Warranties that the Service will be uninterrupted, error-free, virus-free, or secure.</li>
-  <li>Warranties that defects or errors will be corrected in a timely or complete manner.</li>
+  <li>Implied warranties or conditions of merchantability, fitness for a particular purpose, title, and non-infringement.</li>
+  <li>Any warranty that the Service will be uninterrupted, timely, error-free, secure, virus-free, or free from other harmful components.</li>
+  <li>Any warranty regarding the accuracy, reliability, completeness, or suitability of AI-generated content or smart home automation outputs.</li>
+  <li>Any warranty that defects or errors in the Service will be corrected.</li>
 </ul>
+
 <div class="callout danger">
-  <div class="callout-head"><span>⛔ Not for Emergency or Safety-Critical Use</span></div>
-  <p>Dartech is designed for home automation convenience only. It must NOT be used as a primary safety system, emergency alert system, medical monitoring device, fire detection system, security alarm, or in any context where failure could result in personal injury or loss of life. Do not rely on Dartech for any safety-critical function. This service is not designed for safety-critical automation and is not suitable for emergency systems.</p>
+  <div class="callout-head"><span>⛔ Not for Emergency or Safety-Critical Systems</span></div>
+  <p>Dartech is designed exclusively as a home automation convenience tool. It must not be used as, or integrated into, a primary safety system, fire detection or suppression system, medical monitoring device, emergency alert system, security alarm, or any other system where failure could result in physical harm, injury, or loss of life. Dartech is not certified, designed, or suitable for safety-critical automation or emergency systems of any kind.</p>
 </div>
+
 <div class="callout warn">
-  <div class="callout-head"><span>⚠ User Verification Required</span></div>
-  <p>You must verify all AI-generated actions and smart home commands before execution. Dartech does not accept responsibility for unverified automated actions taken through the platform.</p>
+  <div class="callout-head"><span>⚠ No Guarantee of Uninterrupted Service</span></div>
+  <p>Dartech does not guarantee that the Service will be continuously available or free from interruptions. Outages caused by maintenance, infrastructure issues, or failures of third-party providers (including OpenAI, Home Assistant, and Brave Search) are beyond Dartech's full control. Dartech is not responsible for losses arising from such unavailability.</p>
 </div>
+
 <hr>
-<h2>2. AI Output Disclaimer</h2>
-<p>The AI components of Dartech are provided for informational and convenience purposes only. AI-generated responses may contain factual errors, outdated information, or inappropriate suggestions. You acknowledge that:</p>
+
+<h2>2. AI-Generated Content</h2>
+<p>All responses, recommendations, automations, and outputs generated by the Dartech AI assistant are provided for informational and convenience purposes only. Specifically:</p>
 <ul>
-  <li>AI outputs do not constitute professional advice of any kind — legal, medical, financial, safety, or otherwise.</li>
-  <li>You will independently verify any AI-generated information before acting upon it.</li>
-  <li>You must verify all actions before execution — Dartech is not responsible for automated actions taken without user verification.</li>
-  <li>Dartech bears no responsibility for decisions made based on AI-generated content.</li>
-  <li>Dartech AI is not designed for safety-critical automation and must not be integrated into any life-safety, emergency response, or critical infrastructure system.</li>
+  <li>AI outputs <strong>may contain factual errors, outdated information, biases, or inappropriate content</strong> and must not be relied upon without independent verification.</li>
+  <li>AI outputs do not constitute professional advice of any kind — including legal, medical, financial, safety, engineering, or emergency advice.</li>
+  <li>You are solely responsible for reviewing and verifying all AI-generated content and smart home commands before execution. Dartech is not liable for any harm resulting from unverified automated actions.</li>
+  <li>Dartech AI is not designed for safety-critical automation and must not be integrated into any life-safety, emergency, or critical infrastructure system.</li>
 </ul>
-<h2>3. Limitation of Liability</h2>
-<p>To the maximum extent permitted by applicable law, in no event shall <strong>Dartech</strong>, its officers, directors, employees, partners, agents, suppliers, or affiliates be liable for any indirect, incidental, special, punitive, or consequential damages, including but not limited to:</p>
+
+<h2>3. Smart Home Automation Failures</h2>
+<p>Dartech is not responsible for:</p>
 <ul>
-  <li>Loss of profits, revenue, data, goodwill, or business opportunity.</li>
-  <li>Damages arising from smart home device malfunctions or unintended device actions triggered through the Service.</li>
-  <li>Service interruptions, data breaches, or unauthorized access despite reasonable security measures.</li>
-  <li>Third-party actions, including failures of OpenAI, Home Assistant, Brave Search, or Google Play APIs.</li>
-  <li>Physical damage to property or personal injury resulting from the use or misuse of the Service.</li>
+  <li>Malfunctions, unintended behavior, or failures of smart home devices controlled through the Service, whether caused by software errors, network issues, or device incompatibilities.</li>
+  <li>Physical damage to property or personal injury resulting from smart home commands executed through the platform.</li>
+  <li>Failures or outages of the Home Assistant platform, whether locally hosted or cloud-based, that affect the Service's smart home functionality.</li>
 </ul>
-<p>Nothing in this disclaimer excludes or limits liability that cannot be excluded or limited under applicable law, including consumer protection rights.</p>
-<h2>4. Maximum Aggregate Liability</h2>
-<p>To the maximum extent permitted by applicable law, Dartech's total cumulative liability to you for all claims shall not exceed the greater of: (a) the amount you paid to Dartech in the <strong>twelve (12) months preceding</strong> the event giving rise to the claim, or (b) <strong>USD $50</strong>. This limitation does not apply where prohibited by applicable law.</p>
+
+<h2>4. Third-Party Service Outages</h2>
+<p>Dartech's functionality depends in part on third-party APIs and services, including OpenAI, Brave Search, and Home Assistant. Dartech is not responsible for:</p>
+<ul>
+  <li>Interruptions, degradations, or discontinuations of any third-party service that affect Dartech's features.</li>
+  <li>Inaccuracies, errors, or harmful outputs produced by third-party AI models or search APIs.</li>
+  <li>Changes to third-party service terms or policies that affect Dartech's ability to provide certain features.</li>
+</ul>
+
 <hr>
-<h2>5. External Links &amp; Third-Party Content</h2>
-<p>The Service may reference or link to third-party websites, services, and content. Dartech does not endorse, control, or assume responsibility for any third-party content, products, services, or privacy practices. Each third-party service operates under its own independent policies. Your interactions with third-party services are solely between you and that third party.</p>
-<h2>6. Indemnification</h2>
-<p>To the maximum extent permitted by applicable law, you agree to indemnify, defend, and hold harmless Dartech and its affiliates from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising out of or in connection with your use of the Service, your violation of these Terms, or any content you submit through the platform.</p>
+
+<h2>5. Limitation of Liability</h2>
+<p>To the maximum extent permitted by the laws of the Arab Republic of Egypt, in no event shall Dartech, its developer, affiliates, partners, or licensors be liable for any indirect, incidental, special, punitive, consequential, or exemplary damages of any nature, including but not limited to:</p>
+<ul>
+  <li>Loss of revenue, profits, data, business opportunities, or goodwill.</li>
+  <li>Damages arising from AI-generated inaccuracies or smart home automation failures.</li>
+  <li>Losses resulting from unauthorized access, data breaches, or security incidents despite reasonable precautions.</li>
+  <li>Damages caused by the unavailability, failure, or misconduct of OpenAI, Brave Search, Home Assistant, or Google Play.</li>
+  <li>Physical damage to property or personal injury sustained through use or misuse of the Service.</li>
+</ul>
+<p>Where applicable law does not permit the exclusion or limitation of certain damages, Dartech's liability shall be limited to the minimum extent required by law. Nothing in these Terms excludes liability for gross negligence, willful misconduct, or other liability that cannot be lawfully excluded under Egyptian law.</p>
+
+<h2>6. Maximum Aggregate Liability</h2>
+<p>To the maximum extent permitted by Egyptian law, Dartech's total cumulative liability to you arising from or related to the Service shall not exceed the greater of: (a) the total subscription fees paid by you to Dartech in the <strong>twelve (12) calendar months immediately preceding</strong> the event giving rise to the claim, or (b) <strong>fifty United States dollars (USD $50)</strong>, converted to Egyptian Pounds at the prevailing exchange rate on the date of the claim.</p>
+
+<h2>7. Indemnification</h2>
+<p>To the maximum extent permitted by applicable law, you agree to indemnify, defend, and hold harmless Dartech and its developer from and against any and all claims, demands, losses, liabilities, costs, and expenses (including reasonable legal fees) arising from: your use or misuse of the Service; your violation of these Terms or this AUP; your infringement of any third-party right; or your violation of any applicable law including Egyptian law.</p>
   `,
 
-  /* ── THIRD PARTIES PROSE ── */
+  /* ── THIRD PARTIES ── */
   third: `
-<p>Dartech integrates with multiple third-party services to deliver its core functionality. This page provides full transparency about which external services are used, what data may be transmitted to them, and how they govern that data. By using Dartech, you acknowledge and consent to data transmission to these services as described below. <strong>Each third-party service operates under its own independent privacy policy and terms of service</strong> — Dartech is not responsible for their practices.</p>
+<p>Dartech integrates with several third-party services that are essential to its core functionality. This section provides complete transparency about which external services are used, the nature of the data transmitted to them, and the independent responsibility each service carries for its own data handling. By using Dartech, you acknowledge and consent to the data transmissions described below.</p>
+
 <div class="callout info">
-  <div class="callout-head"><span>ℹ Your Responsibility</span></div>
-  <p>Dartech is not responsible for the privacy practices, data handling, uptime, or policies of any third-party service. We encourage you to independently review each provider's privacy policy and terms of service before use.</p>
+  <div class="callout-head"><span>ℹ Independent Responsibility</span></div>
+  <p>Dartech is not responsible for the availability, accuracy, behavior, security practices, or privacy policies of any third-party service. Dartech is not responsible for outages, errors, or harmful outputs produced by these services. Each third-party service operates entirely under its own independent legal framework and privacy policy.</p>
 </div>
+
 <hr>
+
 <div class="tp-card">
   <div class="tp-head">
     <div class="tp-logo">🤖</div>
     <div class="tp-meta">
       <div class="tp-name-row">
         <span class="tp-name">OpenAI</span>
-        <span class="chip">AI Processing Engine</span>
+        <span class="chip">AI Language Model</span>
       </div>
-      <a class="tp-url" href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">openai.com ↗</a>
+      <a class="tp-url" href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener noreferrer">openai.com/policies ↗</a>
     </div>
   </div>
-  <div class="tp-section-label">Data Transmitted to OpenAI</div>
+  <div class="tp-lbl">Role in Dartech</div>
+  <p>OpenAI provides the large language model (LLM) API that powers Dartech's AI assistant responses, command interpretation, and natural language processing features.</p>
+  <div class="tp-lbl">Data Transmitted</div>
   <ul>
-    <li>Your text-based queries and commands submitted to the AI assistant.</li>
-    <li>Contextual prompt data included in API requests (such as device state summaries).</li>
-    <li>Conversation turns within an active session — not persisted after the session ends.</li>
+    <li>Text queries and commands you submit to the AI assistant.</li>
+    <li>Contextual data included in API prompts (e.g., summarized device state information).</li>
+    <li>Conversation turns within an active session — not persisted by Dartech after the session ends.</li>
   </ul>
   <div class="tp-note">
-    <p>Dartech uses OpenAI's API, not consumer-facing ChatGPT products. OpenAI states that API data is not used to train models by default. Data may be subject to OpenAI's usage policy for safety monitoring. OpenAI operates under its own independent privacy policy. Review their policy at openai.com/policies.</p>
+    <p>Dartech uses OpenAI's API (not consumer-facing ChatGPT). OpenAI's API data usage policy states that API inputs and outputs are not used to train OpenAI models by default. However, OpenAI may perform safety monitoring in accordance with its own policies. Dartech is not responsible for OpenAI's availability, accuracy of outputs, or any changes to OpenAI's service or policies.</p>
   </div>
 </div>
+
 <div class="tp-card">
   <div class="tp-head">
     <div class="tp-logo">🏠</div>
     <div class="tp-meta">
       <div class="tp-name-row">
         <span class="tp-name">Home Assistant</span>
-        <span class="chip">Smart Home Control</span>
+        <span class="chip">Smart Home Platform</span>
       </div>
-      <a class="tp-url" href="https://www.home-assistant.io/privacy/" target="_blank" rel="noopener">home-assistant.io ↗</a>
+      <a class="tp-url" href="https://www.home-assistant.io/privacy/" target="_blank" rel="noopener noreferrer">home-assistant.io/privacy ↗</a>
     </div>
   </div>
-  <div class="tp-section-label">Data Transmitted to Home Assistant</div>
+  <div class="tp-lbl">Role in Dartech</div>
+  <p>Home Assistant is the smart home automation platform through which Dartech issues device commands, reads device states, and executes automations on your connected smart home devices.</p>
+  <div class="tp-lbl">Data Transmitted</div>
   <ul>
-    <li>Smart home commands and automation instructions you issue through Dartech.</li>
-    <li>Device state queries (e.g., checking whether a light or device is active).</li>
-    <li>Authentication tokens required to connect to your Home Assistant instance.</li>
+    <li>Smart home device commands issued by you or generated by the AI assistant.</li>
+    <li>Device state queries (e.g., checking the on/off status of a light or sensor reading).</li>
+    <li>Authentication tokens required to establish and maintain a connection to your Home Assistant instance.</li>
   </ul>
   <div class="tp-note">
-    <p>Home Assistant may be deployed locally on your own hardware or via Home Assistant Cloud (Nabu Casa). When deployed locally, commands are transmitted only within your local network. When using Home Assistant Cloud, their separate independent privacy policy applies. Dartech does not control your Home Assistant deployment or its data practices.</p>
+    <p>Home Assistant may be self-hosted locally on your own hardware (in which case data stays within your local network) or accessed via Home Assistant Cloud (Nabu Casa), which has its own independent privacy policy. Dartech has no control over your Home Assistant instance, its configuration, or the data practices of Nabu Casa. Dartech is not responsible for any smart home automation failures or device malfunctions arising from Home Assistant's behavior.</p>
   </div>
 </div>
+
 <div class="tp-card">
   <div class="tp-head">
     <div class="tp-logo">🦁</div>
@@ -945,18 +1078,21 @@ en: {
         <span class="tp-name">Brave Search</span>
         <span class="chip">Web Search API</span>
       </div>
-      <a class="tp-url" href="https://brave.com/privacy/search/" target="_blank" rel="noopener">brave.com ↗</a>
+      <a class="tp-url" href="https://brave.com/privacy/search/" target="_blank" rel="noopener noreferrer">brave.com/privacy/search ↗</a>
     </div>
   </div>
-  <div class="tp-section-label">Data Transmitted to Brave Search</div>
+  <div class="tp-lbl">Role in Dartech</div>
+  <p>Brave Search provides real-time web search capabilities, enabling the Dartech AI assistant to retrieve current information that may not be available within its training data.</p>
+  <div class="tp-lbl">Data Transmitted</div>
   <ul>
-    <li>Search queries you initiate through the Dartech AI assistant.</li>
-    <li>Anonymized request metadata required by the API (such as language preference).</li>
+    <li>Search queries formulated by the AI assistant on your behalf.</li>
+    <li>Anonymized request metadata required by the Brave Search API (e.g., language setting, region).</li>
   </ul>
   <div class="tp-note">
-    <p>Brave Search is used to retrieve real-time web information when the AI assistant requires current data. Brave Search is designed with privacy in mind and does not build user profiles. However, your search queries are transmitted to Brave's servers in accordance with their independent privacy policy.</p>
+    <p>Brave Search is designed with user privacy as a priority and does not build personal user profiles. However, search query content is transmitted to Brave's servers for processing in accordance with Brave's independent privacy policy. Dartech is not responsible for the accuracy of search results returned by Brave Search or for any changes to Brave Search's availability or policies.</p>
   </div>
 </div>
+
 <div class="tp-card">
   <div class="tp-head">
     <div class="tp-logo">▶</div>
@@ -965,322 +1101,446 @@ en: {
         <span class="tp-name">Google Play</span>
         <span class="chip">Distribution &amp; Billing</span>
       </div>
-      <a class="tp-url" href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener">play.google.com ↗</a>
+      <a class="tp-url" href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener noreferrer">play.google.com/terms ↗</a>
     </div>
   </div>
-  <div class="tp-section-label">Google Play Billing</div>
+  <div class="tp-lbl">Role in Dartech</div>
+  <p>Google Play serves as one of the distribution and billing channels for the Dartech mobile application. Where available, users may download the application and manage their subscription through the Google Play Store.</p>
+  <div class="tp-lbl">Data Transmitted to Google</div>
   <ul>
-    <li>If you download or subscribe to Dartech through the Google Play Store, Google Play billing applies.</li>
-    <li>Purchase and subscription data is managed by Google in accordance with Google's own privacy policy and billing terms.</li>
-    <li>Refund requests for Google Play purchases are subject to Google Play's refund policies.</li>
+    <li>Purchase and subscription data associated with transactions made through Google Play.</li>
+    <li>Device and account identifiers required by the Google Play billing system.</li>
   </ul>
   <div class="tp-note">
-    <p>Google Play operates under its own independent terms of service and privacy policy. Dartech is not responsible for Google's data handling practices. In the event of any conflict between these Terms and Google Play policies, Google Play policies prevail solely with respect to distribution and billing.</p>
+    <p>When you subscribe through Google Play, Google manages all billing, renewal, and refund processes under Google's own terms of service and privacy policy. Dartech does not have access to your full payment card details when billing is handled by Google Play. Dartech is not responsible for Google Play's availability, billing behavior, refund decisions, or any changes to Google Play's policies. In any conflict between these Terms and Google Play's policies, Google Play's policies prevail solely with respect to distribution and billing.</p>
   </div>
 </div>
+
 <hr>
-<h2>General Third-Party Data Notice</h2>
+
+<h2>General Third-Party Notice</h2>
 <ul>
-  <li>Data transmitted to third-party services is subject to <strong>their respective independent privacy policies and terms of service</strong>, not solely Dartech's.</li>
-  <li>Dartech cannot guarantee the security, accuracy, or availability of any third-party service.</li>
-  <li>Third-party service outages may affect the availability of Dartech features that depend on them.</li>
-  <li>Dartech will make reasonable efforts to notify users if a critical third-party integration changes significantly.</li>
-  <li>You may be subject to additional terms imposed by third-party providers when their services are accessed through Dartech.</li>
+  <li>All third-party services listed above operate under their own <strong>independent privacy policies and terms of service</strong>. Dartech is not a party to those agreements.</li>
+  <li>Dartech cannot guarantee the continuous availability, accuracy, security, or lawful behavior of any third-party service.</li>
+  <li>Outages or failures of any third-party service may affect the availability of certain Dartech features. Dartech is not liable for such disruptions.</li>
+  <li>If Dartech introduces new third-party integrations involving user data transmission, this page will be updated and users will be notified at least <strong>7 calendar days</strong> before the integration is activated.</li>
 </ul>
-<h2>Future Integrations</h2>
-<p>Dartech may add integrations with additional third-party services in the future. When new integrations involving data transmission are introduced, this page will be updated and users will be notified via in-app notification prior to the change taking effect. Continued use of the Service after such notice constitutes your consent to the updated integrations.</p>
   `
 },
 
-/* ════════════════════════════════════════════════
-   ARABIC
-════════════════════════════════════════════════ */
+/* ════════════════════════════ ARABIC ════════ */
 ar: {
-  /* UI chrome */
-  legal:                 "قانوني",
-  updated:               "تحديث: ٣١ أغسطس ٢٠٢٦",
-  tab_terms:             "الشروط والأحكام",
-  tab_privacy:           "سياسة الخصوصية",
-  tab_aup:               "سياسة الاستخدام",
-  tab_disclaimer:        "إخلاء المسؤولية",
-  tab_third:             "خدمات الطرف الثالث",
-  footer_copy:           "&copy; ٢٠٢٦ Dartech. جميع الحقوق محفوظة.",
-  footer_contact:        "سيتم تقديم معلومات الاتصال في تحديث قادم.",
-  company_title:         "معلومات الشركة",
-  company_name_lbl:      "اسم الشركة",
-  company_name_val:      "Dartech (مبدئي)",
-  company_entity_lbl:    "الكيان القانوني",
-  company_entity_val:    "لم يُحدَّد بعد",
-  company_jurisdiction_lbl: "الولاية القضائية",
-  company_jurisdiction_val: "لم تُحدَّد بعد",
-  company_updated_lbl:   "آخر تحديث",
-  company_updated_val:   "٣١ أغسطس ٢٠٢٦",
-  terms_title:           "الشروط والأحكام",
-  privacy_title:         "سياسة الخصوصية",
-  aup_title:             "سياسة الاستخدام المقبول",
-  disclaimer_title:      "إخلاء المسؤولية",
-  third_title:           "خدمات الطرف الثالث",
+  /* chrome */
+  lbl_legal:       "قانوني",
+  lbl_updated:     "تحديث: ٣١ أغسطس ٢٠٢٦",
+  tab_terms:       "الشروط والأحكام",
+  tab_payments:    "المدفوعات",
+  tab_privacy:     "سياسة الخصوصية",
+  tab_aup:         "سياسة الاستخدام",
+  tab_disclaimer:  "إخلاء المسؤولية",
+  tab_third:       "خدمات الطرف الثالث",
+  foot_copy:       "&copy; ٢٠٢٦ Dartech. جميع الحقوق محفوظة.",
+  foot_juris:      "يخضع هذا الاتفاق لقوانين جمهورية مصر العربية.",
+  /* company card */
+  cid_name_lbl:    "اسم الخدمة",
+  cid_status_lbl:  "الوضع القانوني",
+  cid_status_val:  "مطوّر برمجيات مستقل",
+  cid_juris_lbl:   "الولاية القضائية",
+  cid_juris_val:   "جمهورية مصر العربية 🇪🇬",
+  cid_date_lbl:    "آخر تحديث",
+  cid_date_val:    "٣١ أغسطس ٢٠٢٦",
+  /* titles */
+  terms_title:     "الشروط والأحكام",
+  payments_title:  "المدفوعات والفواتير",
+  privacy_title:   "سياسة الخصوصية",
+  aup_title:       "سياسة الاستخدام المقبول",
+  disclaimer_title:"إخلاء المسؤولية",
+  third_title:     "خدمات الطرف الثالث",
 
-  /* ── TERMS PROSE (AR) ── */
+  /* ── TERMS (AR) ── */
   terms: `
-<p>تحكم هذه الشروط والأحكام ("الشروط") وصولك إلى واستخدامك لمنصة <strong>Dartech</strong> لمساعد المنزل الذكي المدعوم بالذكاء الاصطناعي، بما في ذلك جميع البرامج والتطبيقات ذات الصلة وواجهات برمجة التطبيقات والخدمات (يُشار إليها مجتمعةً بـ"الخدمة"). من خلال إنشاء حساب أو الوصول إلى الخدمة بأي طريقة، فإنك تُقر بأنك قرأت هذه الشروط وفهمتها وتوافق على الالتزام بها قانونياً. إذا كنت لا توافق، فيجب عليك التوقف فوراً عن الاستخدام.</p>
+<p>تُشكّل هذه الشروط والأحكام ("الشروط") اتفاقية ملزمة قانوناً بينك وبين <strong>Dartech</strong>، وهي خدمة مساعد منزل ذكي مدعومة بالذكاء الاصطناعي يُشغّلها مطوّر برمجيات مستقل (يُشار إليها بـ"Dartech" أو "نحن"). تعمل Dartech كخدمة برمجيات مستقلة دون كيان شركاتي مسجّل في الوقت الحالي. باستخدامك للخدمة بأي شكل، تُقرّ بأنك قرأت هذه الشروط وفهمتها وتوافق على الالتزام بها وبالقوانين المعمول بها في <strong>جمهورية مصر العربية</strong>.</p>
+
+<div class="juris-bar">
+  <div class="juris-icon">⚖️</div>
+  <div class="juris-text">
+    <div class="juris-title">القانون الحاكم</div>
+    <div class="juris-desc">تخضع هذه الاتفاقية وتُفسَّر وفقاً لقوانين جمهورية مصر العربية. تخضع أي نزاعات تنشأ عنها للاختصاص القضائي الحصري للمحاكم المصرية المختصة.</div>
+  </div>
+</div>
+
 <h2>١. الأهلية</h2>
-<p>يجب أن يكون عمرك <strong>١٨ عاماً على الأقل</strong> وأن تكون قادراً قانونياً على إبرام عقد ملزم في ولايتك القضائية لاستخدام هذه الخدمة. باستخدام Dartech، فأنت تُقر باستيفاء هذه المتطلبات.</p>
+<p>يجب أن يكون عمرك <strong>١٨ عاماً على الأقل</strong> وأن تكون أهلاً قانوناً لإبرام عقد ملزم بموجب القانون المصري وقانون ولايتك القضائية. باستخدام Dartech، تُقرّ بأنك تستوفي هذه المتطلبات.</p>
+
 <hr>
-<h2>٢. الاشتراك والفواتير</h2>
-<p>تعمل Dartech وفق <strong>نموذج اشتراك شهري</strong>. باشتراكك، تُفوّض Dartech بخصم المبلغ من وسيلة الدفع التي اخترتها على أساس شهري متكرر. إذا اشتركت عبر متجر Google Play، فإن اشتراكك تُديره ويُفوتره Google Play وفقاً لسياسات فواتير Google Play.</p>
+
+<h2>٢. نموذج الاشتراك</h2>
+<p>يتطلب الوصول إلى ميزات Dartech المميزة اشتراكاً نشطاً يُجدَّد شهرياً. تتوفر قنوات الاشتراك التالية:</p>
 <ul>
-  <li>تُجدَّد الاشتراكات تلقائياً في نهاية كل دورة فوترة ما لم يتم إلغاؤها قبل تاريخ التجديد.</li>
-  <li>يمكنك إلغاء اشتراكك في أي وقت من خلال إعدادات حسابك أو متجر Google Play أو من خلال التواصل مع الدعم.</li>
-  <li>يسري الإلغاء في نهاية فترة الفوترة الحالية ويحتفظ المستخدم بالوصول حتى ذلك التاريخ.</li>
-  <li>تحتفظ Dartech بالحق في تعديل الأسعار مع إشعار مسبق لا يقل عن <strong>١٤ يوماً</strong>.</li>
+  <li><strong>متجر Google Play:</strong> حيث يتوفر في منطقتك وعلى جهازك، يمكن شراء الاشتراكات وإدارتها مباشرةً عبر متجر Google Play، وتتولى Google الفوترة وفق سياساتها.</li>
+  <li><strong>الدفع الخارجي عبر موقع Dartech:</strong> حيث لا تتوفر فوترة Google Play أو بتفضيل المستخدم، يمكن شراء الاشتراكات عبر قناة الدفع الخارجية التي تُشغّلها Dartech باستخدام وسائل الدفع المحلية أو مزودي الدفع الخارجيين المعتمدين.</li>
 </ul>
+<p><strong>هام:</strong> لا يُعالج تطبيق الهاتف المدفوعات مباشرةً. تتم جميع معالجات الدفع إما عبر بنية Google Play أو عبر قناة الدفع الخارجية لـ Dartech.</p>
+
 <h2>٣. سياسة الاسترداد</h2>
-<p>جميع المدفوعات <strong>غير قابلة للاسترداد إلا في الحالات التي يتطلبها القانون المعمول به أو سياسات المنصة (بما في ذلك Google Play)</strong>. إذا اشتركت عبر Google Play، فإن طلبات الاسترداد تخضع لسياسات استرداد Google Play. لمناقشة أي مشكلة في الفوترة، يُرجى التواصل مع Dartech. <strong>سيتم تقديم معلومات الاتصال في تحديث قادم.</strong></p>
+<p>جميع المدفوعات <strong>غير قابلة للاسترداد إلا في الحالات التي يوجبها القانون المعمول به أو سياسات منصة الدفع المستخدمة</strong> (بما فيها سياسات استرداد Google Play). لمناقشة أي خلاف في الفوترة، تواصل مع دعم Dartech عبر قناة الاتصال المُوضَّحة عند الشراء.</p>
+
 <hr>
+
 <h2>٤. حدود الاستخدام والاستخدام العادل</h2>
-<p>يتضمن كل مستوى اشتراك حدوداً محددة لاستخدام واجهة برمجة التطبيقات واستفسارات الذكاء الاصطناعي وأوامر المنزل الذكي.</p>
 <ul>
-  <li><strong>قد يؤدي الاستخدام المفرط</strong> الذي يتجاوز بشكل كبير حدود الخطة إلى تقليل سرعة الاستجابة أو تقييد الميزات أو تعليق الحساب.</li>
-  <li>يُحظر استخدام الروبوتات أو البرامج النصية الآلية التي تُولّد حملاً غير متناسب على الخادم.</li>
-  <li>قد يؤدي الإساءة المستمرة لحدود الاستخدام إلى إنهاء الحساب نهائياً دون استرداد، إلا بما يقتضيه القانون المعمول به.</li>
+  <li>قد يؤدي <strong>الاستخدام المفرط أو التعسفي</strong> الذي يتجاوز حدود الخطة بشكل ملحوظ إلى تقليل السرعة أو تقييد الميزات أو تعليق الحساب.</li>
+  <li>يُحظر استخدام الروبوتات أو البرامج الآلية التي تُولّد حملاً غير متناسب على الخادم.</li>
+  <li>قد تؤدي الإساءة المستمرة إلى الإنهاء الدائم للحساب.</li>
 </ul>
-<h2>٥. قيود الذكاء الاصطناعي وعدم ضمان الدقة</h2>
+
+<h2>٥. قيود الذكاء الاصطناعي</h2>
 <ul>
   <li>قد تكون مخرجات الذكاء الاصطناعي <strong>غير دقيقة أو غير مكتملة أو مضللة أو قديمة</strong>.</li>
-  <li>أنت وحدك المسؤول عن مراجعة والتحقق من أي محتوى تولّده الذكاء الاصطناعي قبل تطبيقه. <strong>يجب عليك التحقق من جميع الإجراءات قبل التنفيذ.</strong></li>
-  <li>لا يُصمَّم الذكاء الاصطناعي في Dartech <strong>لأتمتة الأنظمة الحرجة</strong> ولا يجوز استخدامه في أنظمة الطوارئ أو البنية التحتية الحيوية.</li>
-  <li>الذكاء الاصطناعي في Dartech <strong>غير مناسب لأنظمة الطوارئ</strong>. لا تعتمد عليه في الحرائق أو الطوارئ الطبية أو الأمنية.</li>
+  <li><strong>يجب عليك التحقق بشكل مستقل من جميع مخرجات الذكاء الاصطناعي وأوامر المنزل الذكي قبل التنفيذ.</strong></li>
+  <li>لا يُصمَّم الذكاء الاصطناعي في Dartech للأتمتة الحرجة أو أنظمة الطوارئ أو أنظمة السلامة الحيوية.</li>
+  <li>لا تُشكّل مخرجات الذكاء الاصطناعي نصيحة مهنية قانونية أو طبية أو مالية أو أمنية.</li>
 </ul>
+
 <hr>
+
 <h2>٦. مسؤوليات المستخدم</h2>
 <ul>
-  <li>أنت مسؤول مسؤولية كاملة عن جميع الإجراءات المتخذة من خلال حسابك.</li>
-  <li>أنت مسؤول عن أمان وسرية بيانات تسجيل الدخول الخاصة بك. إذا اشتبهت في وصول غير مصرح به، تواصل مع الدعم فوراً. <strong>سيتم تقديم معلومات الاتصال في تحديث قادم.</strong></li>
-  <li>أنت مسؤول عن الامتثال لجميع القوانين المحلية والوطنية والدولية المعمول بها.</li>
+  <li>أنت مسؤول مسؤولية كاملة عن جميع الأنشطة التي تتم عبر حسابك.</li>
+  <li>يجب عليك الحفاظ على سرية بيانات تسجيل الدخول في جميع الأوقات.</li>
+  <li>أنت مسؤول عن الامتثال لجميع القوانين المصرية والدولية المعمول بها.</li>
 </ul>
-<h2>٧. عدم ضمان وقت التشغيل أو الخدمة الخالية من الأخطاء</h2>
-<p>تُقدّم Dartech الخدمة على أساس <strong>"التوافر حسب الإمكانية"</strong>. لا نضمن الوصول المستمر أو المتواصل أو الخالي من الأخطاء. بالقدر الأقصى المسموح به بموجب القانون المعمول به، لن تكون Dartech مسؤولة عن أي خسائر ناتجة عن انقطاع الخدمة.</p>
+
+<h2>٧. توافر الخدمة</h2>
+<p>تُقدَّم الخدمة على أساس <strong>"التوافر حسب الإمكانية"</strong> دون ضمان الاستمرارية أو الخلو من الأخطاء. بالقدر الأقصى المسموح به بموجب القانون المصري، لن تكون Dartech مسؤولة عن الخسائر الناتجة عن انقطاع الخدمة.</p>
+
 <hr>
+
 <h2>٨. الملكية الفكرية</h2>
-<p>جميع محتويات وعلامات تجارية وبرامج وخوارزميات وواجهات منصة Dartech هي ملكية فكرية حصرية لـ Dartech أو مرخصيها. تُمنح ترخيصاً محدوداً وغير حصري وغير قابل للتحويل وقابل للإلغاء لاستخدام الخدمة للأغراض الشخصية غير التجارية.</p>
+<p>جميع محتويات وعلامات تجارية وبرامج وخوارزميات منصة Dartech هي ملكية فكرية لـ Dartech أو مرخصيها. تُمنح ترخيصاً محدوداً وقابلاً للإلغاء للاستخدام الشخصي غير التجاري وفق هذه الشروط.</p>
+
 <h2>٩. الإنهاء</h2>
-<p>تحتفظ Dartech بالحق في تعليق أو إنهاء حسابك في أي وقت لانتهاك هذه الشروط أو النشاط الاحتيالي المشتبه به. تخضع المبالغ المستردة عند الإنهاء للقسم ٣ من هذه الشروط.</p>
-<h2>١٠. الامتثال لـ Google Play</h2>
-<p>إذا قمت بتنزيل الخدمة أو الوصول إليها من خلال متجر Google Play، فإن استخدامك يخضع أيضاً لشروط خدمة Google Play وسياسات Google المعمول بها. في حالة أي تعارض بين هذه الشروط وسياسات Google Play، تسود سياسات Google Play فيما يتعلق بالتوزيع والفوترة فقط.</p>
-<h2>١١. القانون الحاكم</h2>
-<p>تخضع هذه الشروط وتُفسَّر وفقاً للقانون المعمول به. تخضع أي نزاعات للاختصاص القضائي الحصري للمحاكم المختصة، بالقدر الأقصى المسموح به بموجب القانون المعمول به.</p>
-<h2>١٢. التغييرات على هذه الشروط</h2>
-<p>تحتفظ Dartech بالحق في تعديل هذه الشروط في أي وقت. سيتم إخطارك بالتغييرات الجوهرية عبر البريد الإلكتروني أو إشعار داخل التطبيق قبل <strong>٧ أيام</strong> على الأقل من دخولها حيز التنفيذ.</p>
+<p>تحتفظ Dartech بالحق في تعليق حسابك أو إنهائه في حال انتهاك هذه الشروط أو النشاط الاحتيالي. تخضع المبالغ المستردة عند الإنهاء للقسم ٣.</p>
+
+<h2>١٠. تعديلات الشروط</h2>
+<p>تحتفظ Dartech بالحق في تعديل هذه الشروط في أي وقت مع إشعار مسبق لا يقل عن <strong>٧ أيام</strong>. استمرارك في استخدام الخدمة يُعدّ قبولاً للشروط المُعدَّلة.</p>
   `,
 
-  /* ── PRIVACY PROSE (AR) ── */
+  /* ── PAYMENTS (AR) ── */
+  payments: `
+<p>يشرح هذا القسم تفصيلاً كيفية تعامل Dartech مع الاشتراكات والفواتير وطرق الدفع المقبولة والتحقق من الوصول. باشتراكك في Dartech، توافق على شروط الدفع الموضحة أدناه.</p>
+
+<h2>١. قنوات الاشتراك</h2>
+<p>تُوفّر Dartech الوصول بالاشتراك عبر القنوات التالية:</p>
+
+<div class="pay-steps">
+  <div class="pay-step">
+    <div class="pay-num">١</div>
+    <div class="pay-body">
+      <div class="pay-title">متجر Google Play (داخل التطبيق)</div>
+      <div class="pay-desc">حيث يتوفر في منطقتك وعلى جهاز Android مؤهل، يمكنك الاشتراك مباشرةً عبر متجر Google Play. تتولى Google الفوترة والتجديد والإلغاء وأي مبالغ مستردة وفق سياسات فوترة Google Play. لا تتمتع Dartech بالوصول إلى تفاصيل بطاقة دفعك عند معالجة الفوترة عبر Google Play.</div>
+    </div>
+  </div>
+  <div class="pay-step">
+    <div class="pay-num">٢</div>
+    <div class="pay-body">
+      <div class="pay-title">الدفع الخارجي عبر موقع Dartech</div>
+      <div class="pay-desc">حيث لا يتوفر Google Play أو لم يكن مفضلاً، يمكن شراء الاشتراكات عبر قناة الدفع الخارجية لـ Dartech. تشمل الطرق المقبولة وسائل الدفع المحلية ومزودي الدفع الخارجيين المتاحين وقت الشراء. لا يُعالج التطبيق الهاتفي المدفوعات مباشرةً، بل تتم جميع المعاملات الخارجية عبر بوابة دفع Dartech المخصصة.</div>
+    </div>
+  </div>
+</div>
+
+<h2>٢. الدفع الخارجي — التحقق من الوصول</h2>
+<p>للاشتراكات المُعالَجة عبر قناة الدفع الخارجية لـ Dartech:</p>
+<ul>
+  <li>بعد إتمام الدفع، قد تُطلب منك <strong>تأكيد معاملتك</strong> (مثل رقم مرجع المعاملة أو لقطة شاشة) عبر قناة دعم Dartech المُشار إليها في بوابة الدفع.</li>
+  <li>يُمنح الوصول إلى الميزات المميزة <strong>فقط بعد التحقق الناجح</strong> من دفعك من قِبَل Dartech، وعادةً ما يكتمل التحقق خلال ٢٤ ساعة.</li>
+  <li>يحتفظ Dartech بحق طلب تحقق إضافي في الحالات التي يكون فيها تأكيد الدفع غير واضح.</li>
+  <li>تقديم تأكيدات دفع كاذبة أو احتيالية يُعدّ انتهاكاً جوهرياً لهذه الشروط وقد يؤدي إلى إنهاء الحساب فوراً.</li>
+</ul>
+
+<div class="callout warn">
+  <div class="callout-head"><span>⚠ هام — المدفوعات الخارجية</span></div>
+  <p>لا تخزّن Dartech بيانات مالية حساسة كأرقام البطاقات الكاملة أو أرقام الحسابات المصرفية أو بيانات الاعتماد المصرفية. تُستخدم تأكيدات الدفع المُقدَّمة للتحقق (مثل أرقام مرجع المعاملات) فقط لتأكيد اشتراكك وتفعيله.</p>
+</div>
+
+<h2>٣. دورة الفوترة والتجديد</h2>
+<ul>
+  <li>تُجدَّد الاشتراكات تلقائياً على أساس <strong>شهري متكرر</strong> ابتداءً من تاريخ شرائك الأول.</li>
+  <li>لاشتراكات Google Play، تُدار عملية التجديد بواسطة Google.</li>
+  <li>للاشتراكات الخارجية، تُبلَّغ بتعليمات التجديد ومواعيد الدفع عبر وسيلة الاتصال المرتبطة بحسابك.</li>
+</ul>
+
+<h2>٤. التسعير والتغييرات</h2>
+<ul>
+  <li>يُعرض تسعير الاشتراك الحالي في نقطة الشراء في القناة المعمول بها.</li>
+  <li>تحتفظ Dartech بالحق في تعديل أسعار الاشتراك مع إشعار مسبق لا يقل عن <strong>١٤ يوماً</strong>.</li>
+</ul>
+
+<h2>٥. المبالغ المستردة</h2>
+<ul>
+  <li><strong>اشتراكات Google Play:</strong> تخضع المبالغ المستردة لسياسات استرداد Google Play.</li>
+  <li><strong>المدفوعات الخارجية:</strong> تُقيَّم طلبات الاسترداد حسب كل حالة على حدة وتُمنح فقط حيث تقتضيها أحكام قانون حماية المستهلك المصري أو في حال وجود خطأ موثّق في الفوترة من جانب Dartech.</li>
+</ul>
+
+<div class="callout success">
+  <div class="callout-head"><span>✓ أمان البيانات</span></div>
+  <p>لا تجمع Dartech أو تخزّن أرقام بطاقات الدفع الكاملة أو CVV أو تفاصيل الحسابات المصرفية. تتم معالجة جميع بيانات الدفع حصرياً من قِبَل Google Play أو مزود الدفع الخارجي المستخدم عند الدفع.</p>
+</div>
+  `,
+
+  /* ── PRIVACY (AR) ── */
   privacy: `
-<p>في <strong>Dartech</strong>، نحن ملتزمون بعمق بحماية خصوصيتك. تشرح سياسة الخصوصية هذه البيانات التي نجمعها وكيفية التعامل معها وحقوقك كمستخدم.</p>
+<p>تصف سياسة الخصوصية هذه كيفية جمع <strong>Dartech</strong>، التي تعمل كخدمة برمجيات مستقلة بموجب قوانين <strong>جمهورية مصر العربية</strong>، للمعلومات واستخدامها وحمايتها. باستخدامك للخدمة، توافق على ممارسات البيانات الموضحة هنا.</p>
 <p><em>آخر تحديث: ٣١ أغسطس ٢٠٢٦</em></p>
+
 <h2>١. البيانات التي لا نجمعها أو نخزنها</h2>
 <ul>
-  <li><strong>لا يتم تخزين التسجيلات الصوتية.</strong> إذا تم استخدام الإدخال الصوتي، يتم معالجة الصوت في الوقت الفعلي والتخلص منه فوراً.</li>
-  <li><strong>لا يتم تخزين سجل المحادثات.</strong> تعاملاتك مع مساعد الذكاء الاصطناعي لا تُحفظ على خوادمنا بعد انتهاء الجلسة.</li>
-  <li><strong>لا يتم إنشاء ملفات تعريف شخصية.</strong> لا نبني ملفات تعريف سلوكية أو مُعرِّفات إعلانية.</li>
-  <li><strong>لا يتم بيع البيانات الشخصية.</strong> لن نبيع أو نؤجر أو نتاجر ببياناتك الشخصية لأي طرف ثالث.</li>
-  <li><strong>لا توجد بيانات بيومترية.</strong> لا نجمع بصمات الأصابع أو بيانات التعرف على الوجه أو أي مُعرِّفات بيومترية أخرى.</li>
+  <li><strong>التسجيلات الصوتية:</strong> لا يُخزَّن أي صوت. تُعالَج بيانات الصوت في الوقت الفعلي وتُحذف فوراً. لا تُحتفظ بأي ملفات صوتية أو بصمات صوتية.</li>
+  <li><strong>سجل المحادثات:</strong> لا يُحتفظ بمحادثات مساعد الذكاء الاصطناعي على خوادم Dartech بعد انتهاء الجلسة.</li>
+  <li><strong>البيانات المالية الحساسة:</strong> لا تُخزَّن أرقام البطاقات الكاملة أو CVV أو أرقام الحسابات المصرفية أو بيانات الاعتماد المصرفية.</li>
+  <li><strong>ملفات التعريف الإعلانية:</strong> لا تُنشأ ملفات تعريف سلوكية لأغراض الإعلان أو وساطة البيانات.</li>
+  <li><strong>المعرّفات البيومترية:</strong> لا تُجمَع بصمات الأصابع أو بيانات التعرف على الوجه أو أي بيانات بيومترية أخرى.</li>
 </ul>
+
 <hr>
+
 <h2>٢. البيانات التي نجمعها</h2>
 <ul>
-  <li><strong>معلومات الحساب:</strong> عنوان البريد الإلكتروني وكلمة المرور المُشفَّرة وحالة الاشتراك.</li>
-  <li><strong>بيانات الأجهزة:</strong> مُعرِّفات أجهزة المنزل الذكي وبيانات التكوين التي تُدخلها صراحةً.</li>
-  <li><strong>مقاييس الاستخدام:</strong> إحصاءات مجمّعة ومجهولة الهوية (مثلاً عدد الأوامر الصادرة - وليس محتواها).</li>
-  <li><strong>السجلات التقنية:</strong> سجلات الأخطاء وتقارير الأعطال المحتفظ بها لمدة أقصاها ٣٠ يوماً.</li>
-  <li><strong>بيانات الدفع:</strong> مُعرِّفات المعاملات وتواريخ الفوترة فقط. بيانات بطاقات الدفع الكاملة تتم معالجتها حصرياً من قِبَل معالج الدفع أو Google Play.</li>
+  <li><strong>بيانات الحساب:</strong> عنوان البريد الإلكتروني وكلمة المرور المُشفَّرة وحالة الاشتراك وتاريخ إنشاء الحساب.</li>
+  <li><strong>بيانات تكوين الأجهزة:</strong> مُعرِّفات أجهزة المنزل الذكي وإعدادات التكامل التي تُكوّنها صراحةً.</li>
+  <li><strong>بيانات تأكيد الدفع:</strong> للاشتراكات عبر قناة الدفع الخارجية، قد نجمع أرقام مرجع المعاملات وتأكيداتها فقط بهدف التحقق من الاشتراك وتفعيله.</li>
+  <li><strong>مقاييس الاستخدام المجمّعة:</strong> إحصاءات مجهولة الهوية لتحسين الخدمة (عدد الأوامر — لا محتواها).</li>
+  <li><strong>السجلات التقنية:</strong> سجلات الأخطاء وتقارير الأعطال المحتفظ بها لمدة أقصاها ٣٠ يوماً دون أي محتوى شخصي.</li>
 </ul>
-<h2>٣. البيانات المُرسَلة إلى واجهات برمجة التطبيقات لطرف ثالث</h2>
+
+<h2>٣. البيانات المُرسَلة إلى واجهات برمجة الطرف الثالث</h2>
 <div class="callout warn">
-  <div class="callout-head"><span>⚠ إشعار مهم</span></div>
-  <p>قد يتم إرسال أوامرك واستفساراتك وتعليمات المنزل الذكي إلى خدمات طرف ثالث للمعالجة. هذا أمر جوهري لعمل الخدمة. باستخدام Dartech، فأنت توافق صراحةً على هذا الإرسال. تعمل كل خدمة طرف ثالث بموجب سياسة خصوصية مستقلة خاصة بها.</p>
+  <div class="callout-head"><span>⚠ إرسال البيانات إلى الطرف الثالث</span></div>
+  <p>تُرسَل أوامرك واستفساراتك وتعليمات المنزل الذكي إلى مزودي خدمة طرف ثالث للمعالجة. هذا متطلب جوهري لتشغيل الخدمة. باستخدام Dartech، توافق صراحةً على هذا الإرسال. يعمل كل مزوّد بموجب سياسة خصوصية مستقلة خاصة به.</p>
 </div>
 <ul>
-  <li><strong>OpenAI (openai.com)</strong> — معالجة استفساراتك النصية.</li>
-  <li><strong>Brave Search (brave.com)</strong> — توجيه استفسارات البحث لاسترجاع المعلومات.</li>
+  <li><strong>OpenAI</strong> — معالجة استفسارات الذكاء الاصطناعي النصية.</li>
+  <li><strong>Brave Search</strong> — توجيه استفسارات البحث لاسترجاع المعلومات.</li>
   <li><strong>Home Assistant</strong> — إرسال أوامر المنزل الذكي.</li>
-  <li><strong>Google Play</strong> — إدارة بيانات الفوترة والاشتراك إذا اشتركت عبر Google Play.</li>
+  <li><strong>Google Play</strong> — إدارة بيانات الاشتراك والشراء بواسطة Google.</li>
 </ul>
-<p>لا تتحمل Dartech مسؤولية ممارسات البيانات لهؤلاء المزودين بعد إرسال البيانات إليهم.</p>
+
 <hr>
-<h2>٤. كيفية استخدامنا لبياناتك</h2>
-<ul>
-  <li>للتحقق من هويتك وإدارة حساب اشتراكك.</li>
-  <li>لمعالجة وتوجيه أوامر المنزل الذكي واستفسارات الذكاء الاصطناعي.</li>
-  <li>للكشف عن النشاط الاحتيالي والإساءي وغير المصرح به ومنعه.</li>
-  <li>للتواصل بشأن تحديثات الخدمة وتنبيهات الأمان وتغييرات السياسة.</li>
-  <li>لتحسين موثوقية الخدمة من خلال بيانات التشخيص المجهولة.</li>
-</ul>
-<h2>٥. الاحتفاظ بالبيانات</h2>
-<p>يتم الاحتفاظ ببيانات الحساب طوال فترة اشتراكك النشط ولمدة تصل إلى <strong>٩٠ يوماً</strong> بعد حذف الحساب. يتم حذف السجلات التقنية بعد <strong>٣٠ يوماً</strong>.</p>
-<h2>٦. حقوقك</h2>
-<p>بناءً على ولايتك القضائية، قد يكون لديك حق في الوصول إلى بياناتك وتصحيحها وحذفها والاعتراض على المعالجة. للممارسة أي من هذه الحقوق، يرجى التواصل مع دعم Dartech. <strong>سيتم تقديم معلومات الاتصال في تحديث قادم.</strong></p>
-<h2>٧. الأمان</h2>
-<p>نطبّق تشفير TLS للبيانات أثناء النقل وتشفير AES-256 للبيانات المُخزَّنة وعمليات تدقيق أمني منتظمة. بالقدر الأقصى المسموح به بموجب القانون المعمول به، أنت تستخدم الخدمة على مسؤوليتك الخاصة.</p>
-<h2>٨. خصوصية الأطفال</h2>
-<p>الخدمة غير موجهة للأشخاص دون سن ١٨ عاماً. لا نجمع بياناتهم الشخصية عن قصد. إذا اعتقدت أن قاصراً قدّم معلومات شخصية، يرجى التواصل معنا فوراً. <strong>سيتم تقديم معلومات الاتصال في تحديث قادم.</strong></p>
+
+<h2>٤. الاحتفاظ بالبيانات</h2>
+<p>تُحتفظ ببيانات الحساب طوال فترة اشتراكك النشط ولمدة تصل إلى <strong>٩٠ يوماً</strong> بعد حذف الحساب. تُحذف السجلات التقنية بعد <strong>٣٠ يوماً</strong>.</p>
+
+<h2>٥. حقوقك</h2>
+<p>بموجب القانون المصري المعمول به، يحق لك طلب الوصول إلى بياناتك أو تصحيحها أو حذفها أو الاعتراض على معالجة معينة. للممارسة أي من هذه الحقوق، تواصل مع دعم Dartech عبر القناة الرسمية المتاحة في التطبيق.</p>
+
+<h2>٦. الأمان</h2>
+<p>تُطبّق Dartech تشفير TLS/HTTPS لجميع البيانات أثناء النقل وضوابط وصول مقيّدة. بالقدر الأقصى المسموح به بموجب القانون المصري، تستخدم الخدمة على مسؤوليتك الخاصة.</p>
+
+<h2>٧. خصوصية الأطفال</h2>
+<p>الخدمة مخصصة للمستخدمين من عمر ١٨ عاماً فأكثر. لا نجمع بيانات الأطفال عن قصد. إذا اعتقدت أن قاصراً استخدم الخدمة، تواصل مع دعم Dartech فوراً.</p>
   `,
 
-  /* ── AUP PROSE (AR) ── */
+  /* ── AUP (AR) ── */
   aup: `
-<p>تُحدِّد سياسة الاستخدام المقبول هذه ("AUP") حدود السلوك المسموح به على منصة Dartech. باستخدام الخدمة، فأنت توافق على عدم الانخراط في أي نشاط محظور موضح هنا. قد تؤدي الانتهاكات إلى تعليق الحساب الفوري أو إنهائه دون استرداد، إلا بما يقتضيه القانون المعمول به.</p>
-<h2>١. الأنشطة غير القانونية</h2>
+<p>تُحدِّد سياسة الاستخدام المقبول هذه ("AUP") قواعد السلوك التي تحكم جميع أوجه استخدام منصة Dartech. قد تؤدي الانتهاكات إلى تعليق الحساب فوراً أو إنهائه أو الإحالة إلى السلطات المصرية أو الدولية المختصة.</p>
+
+<h2>١. الأنشطة غير المسموح بها — الأنشطة غير القانونية</h2>
 <ul>
-  <li>استخدام الخدمة للتخطيط أو تسهيل أو تنفيذ أي نشاط ينتهك القانون المحلي أو الوطني أو الدولي المعمول به.</li>
-  <li>إرسال أو تخزين أو معالجة محتوى غير قانوني أو ضار أو مهدِّد أو مسيء أو مُشكِّل للتحرش أو تشهيري أو فاحش.</li>
-  <li>الانخراط في مراقبة غير مصرح بها أو ملاحقة الأفراد عبر أجهزة المنزل الذكي المتصلة.</li>
-  <li>تسهيل أي شكل من أشكال الاحتيال أو سرقة الهوية أو غسيل الأموال.</li>
+  <li>استخدام الخدمة للتخطيط أو تسهيل أي نشاط ينتهك القانون المصري أو الدولي أو قانون ولايتك القضائية.</li>
+  <li>إرسال أو تخزين محتوى غير قانوني أو ضار أو مُهدِّد أو مُشكِّل للتحرش أو تشهيري أو فاحش.</li>
+  <li>تسهيل الاحتيال أو سرقة الهوية أو غسيل الأموال أو أي ممارسة خادعة.</li>
 </ul>
+
 <hr>
-<h2>٢. إساءة استخدام النظام والإجهاد</h2>
+
+<h2>٢. الإساءة والاستخدام المفرط</h2>
+<p>تُقدّم Dartech الخدمة ضمن حدود استخدام محددة. ما يلي يُعدّ إساءة استخدام وقد يؤدي إلى تقليل السرعة أو التعليق أو الإنهاء الدائم:</p>
 <ul>
-  <li><strong>لا تقم</strong> بإجهاد الخدمة أو إغراقها عمداً دون إذن خطي صريح.</li>
-  <li><strong>لا تنشر</strong> روبوتات أو برامج نصية آلية ترسل طلبات بمعدل يتجاوز أنماط التفاعل البشري الطبيعي.</li>
-  <li><strong>لا تتجاوز</strong> حدود المعدل أو آليات التقييد أو حصص الاستخدام.</li>
-  <li><strong>لا تشارك</strong> بيانات اعتماد الحساب مع الآخرين لتجميع سعة الاستخدام.</li>
+  <li>إرسال طلبات API بمعدلات تتجاوز بشكل ملحوظ أنماط التفاعل البشري العادي.</li>
+  <li>إجهاد بنية Dartech التحتية عمداً من خلال الإغراق أو اختبار الإجهاد أو أنشطة حجب الخدمة.</li>
+  <li>تجاوز حدود المعدل أو حصص الاستخدام أو آليات التقييد.</li>
+  <li>مشاركة بيانات اعتماد الحساب مع مستخدمين غير مصرح لهم.</li>
 </ul>
-<h2>٣. القرصنة والهندسة العكسية</h2>
+
+<h2>٣. الهندسة العكسية وانتهاكات الأمان</h2>
+<p><strong>يُحظر تماماً إجراء أي هندسة عكسية لأي جزء من منصة Dartech.</strong> تحديداً، يجب عليك عدم:</p>
 <ul>
-  <li>يُحظر تماماً محاولة الوصول غير المصرح به إلى أنظمة Dartech أو خوادمها أو قواعد بياناتها.</li>
-  <li>الهندسة العكسية أو فك التجميع أو محاولة استخلاص الكود المصدري من أي جزء من المنصة.</li>
-  <li>اعتراض اتصالات الشبكة بين الخدمة وأنظمتها الخلفية أو مراقبتها أو فك تشفيرها.</li>
-  <li>استخدام مساعد الذكاء الاصطناعي لإنشاء كود ضار أو ناقلات هجوم تستهدف أي نظام.</li>
+  <li>الهندسة العكسية أو فك التجميع أو محاولة استخلاص الكود المصدري لأي برنامج أو خدمة في Dartech.</li>
+  <li>اختبار ثغرات أنظمة أو شبكات أو واجهات برمجة تطبيقات Dartech دون تفويض خطي صريح.</li>
+  <li>محاولة الوصول غير المصرح به إلى أي خادم أو قاعدة بيانات أو حساب أو نظام داخلي لـ Dartech.</li>
+  <li>اعتراض أو مراقبة أو فك تشفير اتصالات الشبكة بين تطبيق Dartech وأنظمته الخلفية.</li>
+  <li>استخدام مساعد الذكاء الاصطناعي في Dartech لإنشاء كود هجوم أو تعليمات استغلال.</li>
 </ul>
+
 <hr>
+
 <h2>٤. إساءة استخدام المنزل الذكي</h2>
 <ul>
-  <li>إصدار أوامر من خلال Dartech قد تُعرِّض السلامة الجسدية لأي شخص للخطر.</li>
-  <li>الوصول إلى أجهزة المنزل الذكي أو التحكم فيها لشخص آخر دون موافقته الصريحة.</li>
-  <li>محاولة استخدام Dartech لأتمتة الأنظمة الحرجة أو أنظمة الطوارئ أو وظائف السلامة الحيوية.</li>
+  <li>إصدار أوامر عبر Dartech قد تُعرِّض السلامة الجسدية لأي شخص للخطر.</li>
+  <li>الوصول إلى أجهزة المنزل الذكي لشخص آخر أو التحكم فيها دون موافقته الصريحة.</li>
+  <li>محاولة استخدام Dartech كمكوّن في أنظمة السلامة الحرجة أو الطوارئ أو المراقبة الطبية.</li>
 </ul>
+
 <h2>٥. معايير محتوى الذكاء الاصطناعي</h2>
 <ul>
-  <li>يُحظر محاولة "كسر القيود" أو التلاعب في ضمانات السلامة الخاصة بالذكاء الاصطناعي.</li>
+  <li>يُحظر تقديم مطالبات مصممة للتحايل على ضمانات السلامة الخاصة بالذكاء الاصطناعي أو تجاوزها.</li>
   <li>يُحظر طلب توليد محتوى غير قانوني أو يُمجّد العنف أو الإرهاب أو الإساءة.</li>
-  <li>يُحظر إنشاء معلومات مضللة لخداع الآخرين من خلال المحتوى الذي يُنشئه الذكاء الاصطناعي.</li>
+  <li>يُحظر استخدام مخرجات الذكاء الاصطناعي لخداع الآخرين أو انتحال شخصيتهم.</li>
 </ul>
+
 <h2>٦. عواقب الانتهاك</h2>
-<p>قد تؤدي انتهاكات هذه السياسة إلى: التعليق الفوري أو الإنهاء الدائم بالقدر المسموح به قانوناً؛ الإحالة إلى جهات إنفاذ القانون إذا كان النشاط غير قانوني؛ الإجراءات القانونية لاسترداد الأضرار؛ والإبلاغ إلى السلطات التنظيمية المعنية.</p>
-<h2>٧. الإبلاغ عن الانتهاكات</h2>
-<p>إذا أدركت أي إساءة استخدام لمنصة Dartech أو ثغرات أمنية محتملة، يرجى الإبلاغ عنها بمسؤولية من خلال قناة الدعم. <strong>سيتم تقديم معلومات الاتصال في تحديث قادم.</strong> نأخذ جميع التقارير بجدية وسنرد خلال ٤٨ ساعة عمل.</p>
+<ul>
+  <li>التعليق الفوري أو الإنهاء الدائم للحساب بالقدر المسموح به قانوناً.</li>
+  <li>إحالة أدلة النشاط غير القانوني إلى سلطات الجرائم الإلكترونية المصرية أو الهيئات المختصة الأخرى.</li>
+  <li>الإجراءات القانونية لاسترداد الأضرار المالية الناجمة عن الانتهاك.</li>
+</ul>
+
+<h2>٧. الإبلاغ</h2>
+<p>إذا تعرّفت على انتهاك محتمل لهذه السياسة أو ثغرة أمنية، يُرجى الإبلاغ عنها بمسؤولية عبر قناة الدعم الرسمية لـ Dartech داخل التطبيق. تُعامَل جميع التقارير بسرية ويُرَدّ عليها خلال <strong>٤٨ ساعة عمل</strong>.</p>
   `,
 
-  /* ── DISCLAIMER PROSE (AR) ── */
+  /* ── DISCLAIMER (AR) ── */
   disclaimer: `
 <h2>١. الخدمة مُقدَّمة "كما هي"</h2>
-<p>تُقدَّم منصة Dartech بما تشمله من جميع البرامج وميزات الذكاء الاصطناعي والتكاملات والخدمات ذات الصلة على أساس <strong>"كما هي" و"حسب التوافر"</strong>، دون أي ضمان من أي نوع. بالقدر الأقصى المسموح به بموجب القانون المعمول به، تُخلي Dartech صراحةً مسؤوليتها من جميع الضمانات، بما فيها:</p>
+<p>تُقدَّم منصة Dartech بما تشمله من جميع ميزات الذكاء الاصطناعي وتكاملات المنزل الذكي والخدمات ذات الصلة على أساس <strong>"كما هي" و"حسب التوافر"</strong>. بالقدر الأقصى المسموح به بموجب قوانين جمهورية مصر العربية والقانون المعمول به الآخر، تُخلي Dartech صراحةً مسؤوليتها من جميع الضمانات، بما فيها:</p>
 <ul>
   <li>الضمانات الضمنية للقابلية للتسويق والصلاحية لغرض معين وعدم التعدي.</li>
-  <li>ضمانات تتعلق بدقة أو موثوقية أو اكتمال أو توقيت أي محتوى أو مخرجات ذكاء اصطناعي.</li>
-  <li>ضمانات بأن الخدمة ستكون متواصلة أو خالية من الأخطاء أو الفيروسات أو آمنة.</li>
+  <li>أي ضمان بأن الخدمة ستكون متواصلة أو خالية من الأخطاء أو آمنة.</li>
+  <li>أي ضمان يتعلق بدقة أو موثوقية مخرجات الذكاء الاصطناعي أو مخرجات أتمتة المنزل الذكي.</li>
 </ul>
+
 <div class="callout danger">
   <div class="callout-head"><span>⛔ ليست للاستخدام في الطوارئ أو الأنظمة الحرجة</span></div>
-  <p>تم تصميم Dartech لأتمتة المنزل كوسيلة راحة فقط. يجب عدم استخدامه كنظام أمان أساسي أو نظام تنبيه طارئ أو جهاز مراقبة طبية أو نظام كشف حريق أو إنذار أمني أو في أي سياق قد يؤدي فشله إلى إصابة شخصية أو وفاة. الذكاء الاصطناعي في Dartech غير مصمم للأتمتة الحرجة وغير مناسب لأنظمة الطوارئ.</p>
+  <p>صُمِّمت Dartech حصرياً كأداة راحة لأتمتة المنزل. يجب عدم استخدامها أو دمجها في نظام أمان أساسي أو نظام كشف حريق أو جهاز مراقبة طبية أو نظام تنبيه طارئ أو أي نظام آخر قد يؤدي فشله إلى ضرر جسدي أو وفاة. لم تُصمَّم Dartech ولا تُعدّ مناسبة للأتمتة الحرجة أو أنظمة الطوارئ.</p>
 </div>
+
 <div class="callout warn">
-  <div class="callout-head"><span>⚠ التحقق من المستخدم مطلوب</span></div>
-  <p>يجب عليك التحقق من جميع الإجراءات التي يُنشئها الذكاء الاصطناعي وأوامر المنزل الذكي قبل التنفيذ. لا تتقبّل Dartech مسؤولية الإجراءات الآلية غير المُتحقَّق منها.</p>
+  <div class="callout-head"><span>⚠ لا يوجد ضمان لاستمرارية الخدمة</span></div>
+  <p>لا تضمن Dartech استمرارية توافر الخدمة. قد تتأثر الخدمة بالصيانة أو أعطال مزودي الطرف الثالث (بما فيهم OpenAI وHome Assistant وBrave Search). لا تتحمل Dartech مسؤولية الخسائر الناجمة عن عدم التوافر.</p>
 </div>
+
 <hr>
-<h2>٢. إخلاء مسؤولية مخرجات الذكاء الاصطناعي</h2>
+
+<h2>٢. المحتوى الذي يُنشئه الذكاء الاصطناعي</h2>
 <ul>
-  <li>لا تُشكِّل مخرجات الذكاء الاصطناعي نصيحة مهنية من أي نوع — قانونية أو طبية أو مالية أو أمنية.</li>
-  <li>يجب عليك التحقق بشكل مستقل من أي معلومات يُنشئها الذكاء الاصطناعي قبل التصرف بناءً عليها.</li>
-  <li>يجب التحقق من جميع الإجراءات قبل التنفيذ — لا تتحمل Dartech مسؤولية الإجراءات الآلية دون تحقق المستخدم.</li>
+  <li>قد تحتوي مخرجات الذكاء الاصطناعي على <strong>أخطاء واقعية أو معلومات قديمة أو تحيزات أو محتوى غير ملائم</strong>.</li>
+  <li>لا تُشكّل مخرجات الذكاء الاصطناعي نصيحة قانونية أو طبية أو مالية أو أمنية.</li>
+  <li>أنت مسؤول مسؤولية كاملة عن مراجعة والتحقق من جميع مخرجات الذكاء الاصطناعي وأوامر المنزل الذكي قبل التنفيذ.</li>
 </ul>
-<h2>٣. تحديد المسؤولية</h2>
-<p>بالقدر الأقصى المسموح به بموجب القانون المعمول به، لن تكون Dartech مسؤولة عن أي أضرار غير مباشرة أو عرضية أو خاصة أو عقابية أو تبعية، بما فيها:</p>
+
+<h2>٣. أعطال أتمتة المنزل الذكي</h2>
+<p>لا تتحمل Dartech مسؤولية:</p>
 <ul>
-  <li>خسارة الأرباح أو الإيرادات أو البيانات أو فرص العمل.</li>
-  <li>الأضرار الناجمة عن أعطال أجهزة المنزل الذكي أو إجراءات الأجهزة غير المقصودة.</li>
-  <li>انقطاعات الخدمة أو خروقات البيانات أو الوصول غير المصرح به.</li>
-  <li>إجراءات الطرف الثالث، بما في ذلك أعطال واجهات برمجة تطبيقات OpenAI وHome Assistant وBrave Search وGoogle Play.</li>
-  <li>الأضرار المادية للممتلكات أو الإصابة الشخصية.</li>
+  <li>أعطال أجهزة المنزل الذكي أو سلوكها غير المقصود.</li>
+  <li>الأضرار المادية للممتلكات أو الإصابة الشخصية الناتجة عن أوامر المنزل الذكي.</li>
+  <li>أعطال منصة Home Assistant أو انقطاعها بأي شكل.</li>
 </ul>
-<p>لا يُستثنى أو يُحدَّد من هذا الإخلاء المسؤولية التي لا يمكن استثناؤها أو تحديدها بموجب القانون المعمول به، بما في ذلك حقوق حماية المستهلك.</p>
-<h2>٤. الحد الأقصى للمسؤولية الإجمالية</h2>
-<p>بالقدر الأقصى المسموح به بموجب القانون المعمول به، لن تتجاوز المسؤولية الإجمالية الكاملة لـ Dartech تجاهك عن جميع المطالبات الأكبر من: (أ) المبلغ الذي دفعته لـ Dartech في <strong>الاثني عشر (١٢) شهراً السابقة</strong> للحدث، أو (ب) <strong>٥٠ دولاراً أمريكياً</strong>. لا ينطبق هذا القيد حيث يحظره القانون المعمول به.</p>
+
+<h2>٤. انقطاعات خدمة الطرف الثالث</h2>
+<p>لا تتحمل Dartech مسؤولية انقطاعات أو تدهور أو توقف أي من خدمات OpenAI وBrave Search وHome Assistant.</p>
+
 <hr>
-<h2>٥. التعويض</h2>
-<p>بالقدر الأقصى المسموح به بموجب القانون المعمول به، توافق على تعويض Dartech وشركاتها التابعة وحمايتهم من أي مطالبات والتزامات وأضرار وخسائر ونفقات تنشأ عن استخدامك للخدمة أو انتهاكك لهذه الشروط.</p>
+
+<h2>٥. تحديد المسؤولية</h2>
+<p>بالقدر الأقصى المسموح به بموجب قوانين جمهورية مصر العربية، لن تكون Dartech أو مطوّرها أو المنتسبون إليها مسؤولين عن أي أضرار غير مباشرة أو عرضية أو خاصة أو عقابية أو تبعية، بما فيها:</p>
+<ul>
+  <li>خسارة الإيرادات أو الأرباح أو البيانات أو الفرص التجارية.</li>
+  <li>الأضرار الناجمة عن عدم دقة الذكاء الاصطناعي أو أعطال أتمتة المنزل الذكي.</li>
+  <li>الخسائر الناتجة عن انقطاعات الخدمة أو خروقات البيانات.</li>
+  <li>الأضرار الناجمة عن أعطال OpenAI وBrave Search وHome Assistant وGoogle Play.</li>
+</ul>
+<p>لا يُستثنى أو يُحدَّد من هذا الإخلاء ما لا يمكن استثناؤه أو تحديده بموجب القانون المصري المعمول به.</p>
+
+<h2>٦. الحد الأقصى للمسؤولية الإجمالية</h2>
+<p>بالقدر الأقصى المسموح به بموجب القانون المصري، لن تتجاوز المسؤولية الإجمالية لـ Dartech الأكبر من: (أ) إجمالي رسوم الاشتراك التي دفعتها في <strong>الاثني عشر (١٢) شهراً السابقة</strong> للحدث، أو (ب) <strong>ما يعادل خمسين دولاراً أمريكياً (٥٠ USD)</strong> بسعر الصرف السائد يوم المطالبة.</p>
+
+<h2>٧. التعويض</h2>
+<p>بالقدر الأقصى المسموح به بالقانون المعمول به، توافق على تعويض Dartech ومطوّرها من وضد أي مطالبات والتزامات وخسائر ونفقات تنشأ عن استخدامك للخدمة أو انتهاكك لهذه الشروط.</p>
   `,
 
-  /* ── THIRD PARTIES PROSE (AR) ── */
+  /* ── THIRD PARTIES (AR) ── */
   third: `
-<p>تتكامل Dartech مع خدمات طرف ثالث متعددة لتقديم وظائفها الأساسية. توفر هذه الصفحة شفافية كاملة حول الخدمات الخارجية المستخدمة وما قد يتم إرساله إليها من بيانات. <strong>تعمل كل خدمة طرف ثالث بموجب سياسة خصوصية وشروط خدمة مستقلة خاصة بها</strong> — لا تتحمل Dartech مسؤولية ممارساتها.</p>
+<p>تتكامل Dartech مع عدة خدمات طرف ثالث أساسية لعملها. تشرح هذه الصفحة بشكل كامل الخدمات المستخدمة وطبيعة البيانات المُرسَلة إليها. <strong>تعمل كل خدمة طرف ثالث بموجب إطارها القانوني المستقل الخاص بها وسياسة خصوصيتها</strong>.</p>
+
 <div class="callout info">
-  <div class="callout-head"><span>ℹ مسؤوليتك</span></div>
-  <p>لا تتحمل Dartech مسؤولية ممارسات الخصوصية أو التعامل مع البيانات أو التوافر أو السياسات لأي خدمة طرف ثالث. نشجعك على مراجعة سياسة الخصوصية وشروط الخدمة لكل مزوِّد بشكل مستقل.</p>
+  <div class="callout-head"><span>ℹ المسؤولية المستقلة</span></div>
+  <p>لا تتحمل Dartech مسؤولية توافر أو دقة أو سلوك أو ممارسات أمان أو سياسات أي خدمة طرف ثالث. لا تتحمل Dartech مسؤولية الانقطاعات أو الأخطاء أو المخرجات الضارة التي تُنتجها هذه الخدمات.</p>
 </div>
+
 <hr>
+
 <div class="tp-card">
   <div class="tp-head">
     <div class="tp-logo">🤖</div>
     <div class="tp-meta">
       <div class="tp-name-row">
         <span class="tp-name">OpenAI</span>
-        <span class="chip">محرك معالجة الذكاء الاصطناعي</span>
+        <span class="chip">نموذج لغوي للذكاء الاصطناعي</span>
       </div>
-      <a class="tp-url" href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">openai.com ↗</a>
+      <a class="tp-url" href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener noreferrer">openai.com/policies ↗</a>
     </div>
   </div>
-  <div class="tp-section-label">البيانات المُرسَلة إلى OpenAI</div>
+  <div class="tp-lbl">دور OpenAI في Dartech</div>
+  <p>توفر OpenAI واجهة برمجة نموذج اللغة الكبير (LLM) التي تُشغّل ردود مساعد الذكاء الاصطناعي في Dartech.</p>
+  <div class="tp-lbl">البيانات المُرسَلة</div>
   <ul>
-    <li>استفساراتك وأوامرك النصية المُقدَّمة إلى مساعد الذكاء الاصطناعي.</li>
-    <li>بيانات السياق المُضمَّنة في طلبات واجهة برمجة التطبيقات (مثل ملخصات حالة الأجهزة).</li>
+    <li>الاستفسارات النصية والأوامر التي تُقدّمها لمساعد الذكاء الاصطناعي.</li>
+    <li>بيانات السياق المُضمَّنة في طلبات واجهة برمجة التطبيقات.</li>
     <li>أدوار المحادثة خلال جلسة نشطة — لا تُحفظ بعد انتهاء الجلسة.</li>
   </ul>
   <div class="tp-note">
-    <p>تستخدم Dartech واجهة برمجة تطبيقات OpenAI وليس منتجات ChatGPT للمستهلكين. تعمل OpenAI بموجب سياسة خصوصية مستقلة خاصة بها. راجع سياستها على openai.com/policies.</p>
+    <p>تستخدم Dartech واجهة برمجة تطبيقات OpenAI وليس منتجات ChatGPT للمستهلكين. تعمل OpenAI بموجب سياسة خصوصية مستقلة خاصة بها. لا تتحمل Dartech مسؤولية توافر OpenAI أو دقة مخرجاتها.</p>
   </div>
 </div>
+
 <div class="tp-card">
   <div class="tp-head">
     <div class="tp-logo">🏠</div>
     <div class="tp-meta">
       <div class="tp-name-row">
         <span class="tp-name">Home Assistant</span>
-        <span class="chip">التحكم في المنزل الذكي</span>
+        <span class="chip">منصة المنزل الذكي</span>
       </div>
-      <a class="tp-url" href="https://www.home-assistant.io/privacy/" target="_blank" rel="noopener">home-assistant.io ↗</a>
+      <a class="tp-url" href="https://www.home-assistant.io/privacy/" target="_blank" rel="noopener noreferrer">home-assistant.io/privacy ↗</a>
     </div>
   </div>
-  <div class="tp-section-label">البيانات المُرسَلة إلى Home Assistant</div>
+  <div class="tp-lbl">دور Home Assistant في Dartech</div>
+  <p>Home Assistant هي منصة أتمتة المنزل الذكي التي تُصدر من خلالها Dartech أوامر الأجهزة وتقرأ حالاتها وتُنفّذ الأتمتة.</p>
+  <div class="tp-lbl">البيانات المُرسَلة</div>
   <ul>
-    <li>أوامر المنزل الذكي وتعليمات الأتمتة التي تُصدرها عبر Dartech.</li>
-    <li>استعلامات حالة الجهاز (مثل التحقق من حالة تشغيل مصباح).</li>
-    <li>رموز المصادقة المطلوبة للاتصال بنسخة Home Assistant الخاصة بك.</li>
+    <li>أوامر أجهزة المنزل الذكي وتعليمات الأتمتة.</li>
+    <li>استعلامات حالة الجهاز.</li>
+    <li>رموز المصادقة لإنشاء الاتصال بنسخة Home Assistant الخاصة بك.</li>
   </ul>
   <div class="tp-note">
-    <p>يمكن نشر Home Assistant محلياً على أجهزتك الخاصة أو عبر Home Assistant Cloud (Nabu Casa). لا تتحكم Dartech في نشر Home Assistant الخاص بك أو ممارسات بياناته. تعمل Home Assistant Cloud بموجب سياسة خصوصية مستقلة منفصلة.</p>
+    <p>لا تتحكم Dartech في نسخة Home Assistant الخاصة بك أو تكوينها أو ممارسات البيانات الخاصة بـ Nabu Casa (Home Assistant Cloud). لا تتحمل Dartech مسؤولية أي أعطال أتمتة ناجمة عن سلوك Home Assistant.</p>
   </div>
 </div>
+
 <div class="tp-card">
   <div class="tp-head">
     <div class="tp-logo">🦁</div>
     <div class="tp-meta">
       <div class="tp-name-row">
         <span class="tp-name">Brave Search</span>
-        <span class="chip">واجهة برمجة البحث على الويب</span>
+        <span class="chip">واجهة برمجة البحث</span>
       </div>
-      <a class="tp-url" href="https://brave.com/privacy/search/" target="_blank" rel="noopener">brave.com ↗</a>
+      <a class="tp-url" href="https://brave.com/privacy/search/" target="_blank" rel="noopener noreferrer">brave.com/privacy/search ↗</a>
     </div>
   </div>
-  <div class="tp-section-label">البيانات المُرسَلة إلى Brave Search</div>
+  <div class="tp-lbl">دور Brave Search في Dartech</div>
+  <p>توفر Brave Search إمكانيات البحث على الويب في الوقت الفعلي لتمكين مساعد الذكاء الاصطناعي من استرجاع المعلومات الحالية.</p>
+  <div class="tp-lbl">البيانات المُرسَلة</div>
   <ul>
-    <li>استعلامات البحث التي تُبادر بها عبر مساعد Dartech الذكاء الاصطناعي.</li>
-    <li>بيانات التعريف المجهولة المطلوبة من واجهة برمجة التطبيقات (مثل تفضيل اللغة).</li>
+    <li>استعلامات البحث التي يُولّدها مساعد الذكاء الاصطناعي نيابةً عنك.</li>
+    <li>بيانات التعريف المجهولة المطلوبة من واجهة برمجة التطبيقات.</li>
   </ul>
   <div class="tp-note">
-    <p>يُستخدم Brave Search لاسترجاع المعلومات في الوقت الفعلي. تعمل Brave Search بموجب سياسة خصوصية مستقلة خاصة بها ومصممة مع مراعاة الخصوصية.</p>
+    <p>تُصمَّم Brave Search مع مراعاة الخصوصية ولا تُنشئ ملفات تعريف شخصية. تعمل وفق سياسة خصوصية مستقلة. لا تتحمل Dartech مسؤولية دقة نتائج البحث.</p>
   </div>
 </div>
+
 <div class="tp-card">
   <div class="tp-head">
     <div class="tp-logo">▶</div>
@@ -1289,66 +1549,65 @@ ar: {
         <span class="tp-name">Google Play</span>
         <span class="chip">التوزيع والفوترة</span>
       </div>
-      <a class="tp-url" href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener">play.google.com ↗</a>
+      <a class="tp-url" href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener noreferrer">play.google.com/terms ↗</a>
     </div>
   </div>
-  <div class="tp-section-label">فوترة Google Play</div>
+  <div class="tp-lbl">دور Google Play في Dartech</div>
+  <p>يعمل Google Play كإحدى قنوات التوزيع والفوترة للتطبيق الهاتفي لـ Dartech.</p>
+  <div class="tp-lbl">البيانات المُرسَلة إلى Google</div>
   <ul>
-    <li>إذا قمت بتنزيل أو الاشتراك في Dartech عبر متجر Google Play، تسري فوترة Google Play.</li>
-    <li>تتم إدارة بيانات الشراء والاشتراك من قِبَل Google وفقاً لسياسة الخصوصية وشروط الفوترة الخاصة بها.</li>
-    <li>تخضع طلبات الاسترداد لمشتريات Google Play لسياسات استرداد Google Play.</li>
+    <li>بيانات الشراء والاشتراك المرتبطة بالمعاملات عبر Google Play.</li>
+    <li>مُعرِّفات الجهاز والحساب المطلوبة من نظام فوترة Google Play.</li>
   </ul>
   <div class="tp-note">
-    <p>تعمل Google Play بموجب شروط خدمة وسياسة خصوصية مستقلة خاصة بها. لا تتحمل Dartech مسؤولية ممارسات Google في التعامل مع البيانات. في حالة أي تعارض بين هذه الشروط وسياسات Google Play، تسود سياسات Google Play فيما يتعلق بالتوزيع والفوترة فقط.</p>
+    <p>تتولى Google إدارة جميع عمليات الفوترة والتجديد والاسترداد بموجب شروط خدمتها وسياسة خصوصيتها المستقلة. لا تتحمل Dartech مسؤولية توافر Google Play أو سلوكه في الفوترة أو قرارات الاسترداد. في أي تعارض بين هذه الشروط وسياسات Google Play، تسود سياسات Google Play فيما يتعلق بالتوزيع والفوترة فقط.</p>
   </div>
 </div>
+
 <hr>
-<h2>إشعار عام ببيانات الطرف الثالث</h2>
+
+<h2>إشعار عام بخدمات الطرف الثالث</h2>
 <ul>
-  <li>تخضع البيانات المُرسَلة إلى خدمات الطرف الثالث لسياسات الخصوصية المستقلة وشروط الخدمة الخاصة بهم، وليس لسياسات Dartech فقط.</li>
-  <li>لا تستطيع Dartech ضمان أمان أو دقة أو توافر أي خدمة طرف ثالث.</li>
-  <li>ستبذل Dartech جهوداً معقولة لإخطار المستخدمين إذا تغيّر تكامل طرف ثالث حيوي بشكل كبير.</li>
+  <li>تخضع جميع خدمات الطرف الثالث المذكورة لسياسات خصوصية مستقلة وشروط خدمة خاصة بها. لا تُعدّ Dartech طرفاً في تلك الاتفاقيات.</li>
+  <li>لا تستطيع Dartech ضمان التوافر المستمر أو الدقة أو الأمان لأي خدمة طرف ثالث.</li>
+  <li>إذا أضافت Dartech تكاملات جديدة تتضمن إرسال بيانات المستخدم، سيتم تحديث هذه الصفحة وإخطار المستخدمين قبل <strong>٧ أيام</strong> على الأقل من تفعيل التكامل.</li>
 </ul>
-<h2>التكاملات المستقبلية</h2>
-<p>قد تُضيف Dartech تكاملات مع خدمات طرف ثالث إضافية مستقبلاً. عند تقديم تكاملات جديدة تنطوي على إرسال بيانات، سيتم تحديث هذه الصفحة وإخطار المستخدمين عبر إشعار داخل التطبيق قبل دخول التغيير حيز التنفيذ.</p>
   `
 }
 
 }; /* end T */
 
-
-/* ─── TABS & LANGUAGE ENGINE ─────────────────── */
-const TABS    = ['terms','privacy','aup','disclaimer','third'];
-let   curLang = localStorage.getItem('dartech-lang') || 'en';
+/* ─── TABS LOGIC ───────────────────────────── */
+const TABS = ['terms','payments','privacy','aup','disclaimer','third'];
+let curLang = localStorage.getItem('dartech-lang') || 'en';
 
 function switchTab(id) {
   if (!TABS.includes(id)) return;
   TABS.forEach(t => {
     document.getElementById('panel-' + t).classList.toggle('active', t === id);
   });
-  document.querySelectorAll('#tabbar .tab-btn').forEach(b => {
-    b.classList.toggle('active', b.dataset.tab === id);
-  });
-  document.querySelectorAll('#footer-nav .fnav-btn').forEach(b => {
-    b.classList.toggle('active', b.dataset.tab === id);
-  });
-  const el = document.querySelector('#tabbar [data-tab="' + id + '"]');
-  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  document.querySelectorAll('#tabbar .tab-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.tab === id));
+  document.querySelectorAll('#footer-nav .fn-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.tab === id));
+  const active = document.querySelector('#tabbar [data-tab="' + id + '"]');
+  if (active) active.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
   history.replaceState(null, '', '#' + id);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({top:0, behavior:'smooth'});
 }
 
+/* ─── LANGUAGE ENGINE ──────────────────────── */
 function applyTranslations(lang) {
   const d = T[lang];
+  /* static keyed elements */
   document.querySelectorAll('[data-t]').forEach(el => {
-    const key = el.getAttribute('data-t');
-    if (d[key] !== undefined) el.innerHTML = d[key];
+    const k = el.getAttribute('data-t');
+    if (d[k] !== undefined) el.innerHTML = d[k];
   });
-
-  /* render prose blocks */
-  ['terms','privacy','aup','disclaimer','third'].forEach(section => {
-    const el = document.getElementById('prose-' + section);
-    if (el && d[section]) el.innerHTML = d[section];
+  /* prose blocks */
+  TABS.forEach(s => {
+    const el = document.getElementById('prose-' + s);
+    if (el && d[s]) el.innerHTML = d[s];
   });
 }
 
@@ -1356,41 +1615,27 @@ function setLang(lang) {
   if (!T[lang]) return;
   curLang = lang;
   localStorage.setItem('dartech-lang', lang);
-
-  /* html dir + body class */
+  const isAr = lang === 'ar';
   document.documentElement.lang = lang;
-  document.documentElement.dir  = lang === 'ar' ? 'rtl' : 'ltr';
-  document.body.classList.toggle('ar', lang === 'ar');
-
-  /* tab-btn font */
-  document.querySelectorAll('.tab-btn').forEach(b => {
-    b.style.fontFamily = lang === 'ar' ? "var(--font-ar)" : "var(--font-en-body)";
-  });
-
-  /* lang buttons */
-  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-  document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
-  document.getElementById('btn-en').setAttribute('aria-pressed', lang === 'en');
-  document.getElementById('btn-ar').setAttribute('aria-pressed', lang === 'ar');
-
+  document.documentElement.dir  = isAr ? 'rtl' : 'ltr';
+  document.body.classList.toggle('ar', isAr);
+  document.getElementById('btn-en').classList.toggle('active', !isAr);
+  document.getElementById('btn-ar').classList.toggle('active',  isAr);
+  document.getElementById('btn-en').setAttribute('aria-pressed', String(!isAr));
+  document.getElementById('btn-ar').setAttribute('aria-pressed', String(isAr));
   applyTranslations(lang);
 }
 
 /* ─── INIT ─────────────────────────────────── */
-(function init() {
-  /* Pre-render prose in EN so page is not blank */
-  ['terms','privacy','aup','disclaimer','third'].forEach(s => {
+(function () {
+  /* pre-render EN prose so page isn't blank before setLang */
+  TABS.forEach(s => {
     const el = document.getElementById('prose-' + s);
-    if (el) el.innerHTML = T.en[s];
+    if (el && T.en[s]) el.innerHTML = T.en[s];
   });
-
-  /* Apply saved/default language */
   setLang(curLang);
-
-  /* Handle hash */
   const hash = location.hash.replace('#', '');
-  if (TABS.includes(hash)) switchTab(hash);
-  else switchTab('terms');
+  switchTab(TABS.includes(hash) ? hash : 'terms');
 })();
 </script>
 
