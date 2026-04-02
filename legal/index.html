@@ -723,15 +723,24 @@ en: {
 <h2>7. Service Availability</h2>
 <p>Dartech provides the Service on an <strong>"as available"</strong> basis. We do not guarantee continuous, uninterrupted, or error-free access. Service availability may be affected by scheduled maintenance, third-party outages (including OpenAI, Home Assistant, and Brave Search), network failures, or other unforeseen events. To the maximum extent permitted by Egyptian law, Dartech shall not be liable for losses or damages resulting from service interruptions.</p>
 
+<h2>8. Internet Connectivity &amp; Network Conditions</h2>
+<p>The Service requires a stable and sufficient internet connection to function correctly. Dartech is <strong>not responsible</strong> for any degradation in service quality, delayed responses, incomplete operations, or loss of functionality arising from the quality, stability, or speed of the user's internet connection or network environment.</p>
+<ul>
+  <li>Service response times, AI processing speed, and smart home command execution may all be materially affected by the user's network conditions, including but not limited to bandwidth limitations, high latency, packet loss, or intermittent connectivity.</li>
+  <li>Interruptions, timeouts, or failures caused — whether in whole or in part — by the user's internet service provider, mobile data network, Wi-Fi infrastructure, router configuration, or any other factor within the user's network environment are <strong>outside the scope of Dartech's responsibility</strong> and do not constitute a service failure on the part of Dartech.</li>
+  <li>Dartech does not offer credits, refunds, or compensation for subscription periods affected by connectivity issues attributable to the user's network, except where required by applicable Egyptian law.</li>
+  <li>Users are solely responsible for ensuring that their devices maintain an adequate and stable internet connection when using the Service.</li>
+</ul>
+
 <hr>
 
-<h2>8. Intellectual Property</h2>
+<h2>9. Intellectual Property</h2>
 <p>All content, branding, software, algorithms, user interfaces, and documentation comprising the Dartech platform are the intellectual property of Dartech or its licensors and are protected under applicable law. You are granted a limited, revocable, non-exclusive, non-transferable license to use the Service for personal, non-commercial purposes in accordance with these Terms. You may not copy, modify, distribute, reverse engineer, sublicense, or create derivative works from any part of the Service.</p>
 
-<h2>9. Termination</h2>
+<h2>10. Termination</h2>
 <p>Dartech reserves the right to suspend or permanently terminate your account, with or without notice, for any material violation of these Terms, fraudulent activity, or actions that jeopardize the security or integrity of the Service. Upon termination, all rights granted to you immediately cease. Refunds upon termination are governed by Section 3.</p>
 
-<h2>10. Modifications to These Terms</h2>
+<h2>11. Modifications to These Terms</h2>
 <p>Dartech reserves the right to amend these Terms at any time. Material amendments will be communicated via in-app notification or the contact method registered with your account, at least <strong>7 calendar days</strong> before taking effect. Your continued use of the Service after the effective date constitutes acceptance of the revised Terms.</p>
   `,
 
@@ -814,7 +823,7 @@ en: {
 <h2>1. Data We Do NOT Collect or Store</h2>
 <p>Dartech has been designed with a privacy-first approach. The following categories of data are explicitly <strong>not collected, stored, or retained</strong> by Dartech:</p>
 <ul>
-  <li><strong>Voice recordings:</strong> If voice input functionality is used, all audio data is processed in real-time and discarded immediately upon processing. No audio files, voice prints, or recordings of any kind are stored on Dartech's servers.</li>
+  <li><strong>Raw voice recordings:</strong> Dartech does not store raw audio recordings as standalone files on its servers. Any voice input is processed in real-time for the purposes described in Section 2a below. No unprocessed audio files or permanent voice prints are retained beyond what is necessary for immediate processing.</li>
   <li><strong>Conversation history:</strong> AI assistant interactions are processed within the context of an active session only. Conversation content is not persisted to Dartech's servers after the session concludes.</li>
   <li><strong>Sensitive financial data:</strong> Dartech does not store full payment card numbers, card verification values (CVV), bank account numbers, banking credentials, or any other sensitive financial data. Payment processing is delegated entirely to Google Play or external payment providers.</li>
   <li><strong>Behavioral advertising profiles:</strong> Dartech does not build user profiles for advertising, data brokerage, or any commercial purpose unrelated to service delivery.</li>
@@ -833,7 +842,27 @@ en: {
   <li><strong>Technical diagnostic logs:</strong> Error reports and crash logs retained for a maximum of 30 days, containing no personal content or conversation data.</li>
 </ul>
 
-<h2>3. Data Transmitted to Third-Party APIs</h2>
+<h2>3. Voice Data Processing</h2>
+<div class="callout info">
+  <div class="callout-head"><span>ℹ Voice Data — Consent Notice</span></div>
+  <p>By enabling voice input functionality within the Service, you explicitly consent to the collection, processing, and limited retention of voice data as described in this section. If you do not consent, you may disable voice input features within the application settings and continue using the Service through text-based input.</p>
+</div>
+<p>Where voice input functionality is enabled by the user, Dartech may collect and process voice data for the following strictly limited purposes:</p>
+<ul>
+  <li><strong>Command interpretation:</strong> Voice input is processed to convert speech to text and extract the user's intended command or query. This processing occurs in real-time and the resulting text instruction is then handled in the same manner as any text-based input.</li>
+  <li><strong>Service improvement:</strong> Anonymized, aggregated voice interaction patterns may be analyzed to improve the accuracy of voice recognition, the naturalness of AI responses, and the overall quality of the voice interface. Any such analysis is conducted on data that has been stripped of personally identifiable information prior to use.</li>
+  <li><strong>User recognition and personalization:</strong> Where explicitly enabled by the user, voice characteristics may be used to identify the speaking user among registered household members and to personalize responses, smart home preferences, and automation behavior accordingly. This feature is opt-in and can be disabled at any time from within the application settings.</li>
+</ul>
+<p><strong>Safeguards applicable to voice data:</strong></p>
+<ul>
+  <li>Raw audio data is processed transiently and is not stored as a permanent audio file on Dartech's servers beyond the duration required for real-time processing.</li>
+  <li>Derived voice data used for personalization is stored in an encrypted format and associated only with your account identifier, not with your personal identity.</li>
+  <li>Voice data is never sold, rented, or shared with third parties for advertising or commercial profiling purposes.</li>
+  <li>Where voice processing requires transmission to a third-party speech-to-text or AI service, such transmission is subject to the applicable third-party's privacy policy (see Section 4 below).</li>
+  <li>You may request deletion of any stored voice-derived data associated with your account at any time by contacting Dartech support through the official channel provided in the application.</li>
+</ul>
+
+<h2>4. Data Transmitted to Third-Party APIs</h2>
 <div class="callout warn">
   <div class="callout-head"><span>⚠ Third-Party Data Transmission</span></div>
   <p>Your commands, text queries, and smart home instructions are transmitted to third-party service providers for processing. This is a fundamental requirement of the Service's operation. By using Dartech, you explicitly consent to this transmission. Each third-party provider operates under its own independent privacy policy.</p>
@@ -848,7 +877,7 @@ en: {
 
 <hr>
 
-<h2>4. How We Use Your Data</h2>
+<h2>5. How We Use Your Data</h2>
 <ul>
   <li>To authenticate your identity and manage your subscription account.</li>
   <li>To process and route smart home commands and AI queries on your behalf.</li>
@@ -856,21 +885,22 @@ en: {
   <li>To detect, investigate, and prevent fraudulent or unauthorized activity.</li>
   <li>To communicate service updates, billing notifications, and policy changes.</li>
   <li>To improve service reliability through anonymized diagnostic analysis.</li>
+  <li>To process voice input and, where opted-in, to personalize the Service experience based on voice-derived user preferences (see Section 3).</li>
 </ul>
 
-<h2>5. Data Retention</h2>
+<h2>6. Data Retention</h2>
 <p>Account data is retained for the duration of your active subscription and for up to <strong>90 days</strong> following account deletion, to comply with legal obligations under Egyptian law and to resolve outstanding disputes. Technical logs are permanently deleted after <strong>30 days</strong>. Payment confirmation documents submitted for external payment verification are retained only for the period necessary to confirm and activate your subscription, and are deleted thereafter unless retention is required by applicable law.</p>
 
-<h2>6. Your Rights</h2>
+<h2>7. Your Rights</h2>
 <p>Subject to applicable Egyptian law, you have the right to: request access to the personal data we hold about you; request correction of inaccurate data; request deletion of your personal data; object to or restrict certain processing activities; and receive your data in a structured, portable format. To exercise any of these rights, please contact Dartech through the official support channel provided in the application or at the point of service.</p>
 
-<h2>7. Security</h2>
+<h2>8. Security</h2>
 <p>Dartech implements industry-standard security measures including TLS/HTTPS encryption for all data transmitted in transit, restricted access controls for stored account data, and periodic security reviews. No digital system can guarantee absolute security. To the maximum extent permitted by Egyptian law, you acknowledge that your use of the Service is at your own risk.</p>
 
-<h2>8. Children's Privacy</h2>
+<h2>9. Children's Privacy</h2>
 <p>The Service is strictly intended for users aged 18 and above. Dartech does not knowingly collect personal data from individuals under the age of 18. If you believe that a minor has accessed the Service or provided personal data, please contact Dartech support immediately so that appropriate action can be taken.</p>
 
-<h2>9. Changes to This Policy</h2>
+<h2>10. Changes to This Policy</h2>
 <p>Dartech may update this Privacy Policy from time to time to reflect changes in service features, legal requirements under Egyptian law, or data handling practices. Material changes will be communicated via in-app notification at least <strong>7 calendar days</strong> before taking effect. Continued use of the Service constitutes your acceptance of the updated policy.</p>
   `,
 
@@ -1214,15 +1244,24 @@ ar: {
 <h2>٧. توافر الخدمة</h2>
 <p>تُقدَّم الخدمة على أساس <strong>"التوافر حسب الإمكانية"</strong> دون ضمان الاستمرارية أو الخلو من الأخطاء. بالقدر الأقصى المسموح به بموجب القانون المصري، لن تكون Dartech مسؤولة عن الخسائر الناتجة عن انقطاع الخدمة.</p>
 
+<h2>٨. الاتصال بالإنترنت وظروف الشبكة</h2>
+<p>تتطلب الخدمة اتصالاً ثابتاً وكافياً بالإنترنت لتعمل بشكل صحيح. <strong>لا تتحمل Dartech أي مسؤولية</strong> عن أي تدهور في جودة الخدمة أو تأخر في الاستجابات أو عمليات غير مكتملة أو فقدان في الوظائف ناتجة عن جودة اتصال المستخدم بالإنترنت أو بيئة شبكته أو استقرارها أو سرعتها.</p>
+<ul>
+  <li>قد تتأثر أوقات استجابة الخدمة وسرعة معالجة الذكاء الاصطناعي وتنفيذ أوامر المنزل الذكي تأثراً جوهرياً بظروف شبكة المستخدم، بما في ذلك على سبيل المثال لا الحصر: محدودية عرض النطاق الترددي، وارتفاع زمن الاستجابة، وفقدان الحزم، والاتصال المتقطع.</li>
+  <li>تُعدّ الانقطاعات أو انتهاء مهلة الاتصال أو حالات الفشل الناجمة — كلياً أو جزئياً — عن مزوِّد خدمة الإنترنت الخاص بالمستخدم، أو شبكة البيانات المحمولة، أو بنية Wi-Fi، أو إعداد الراوتر، أو أي عامل آخر ضمن بيئة شبكة المستخدم، <strong>خارج نطاق مسؤولية Dartech</strong> ولا تُشكّل إخفاقاً في الخدمة من جانب Dartech.</li>
+  <li>لا تُقدّم Dartech اعتمادات أو مبالغ مستردة أو تعويضات عن فترات الاشتراك المتأثرة بمشاكل الاتصال العائدة إلى شبكة المستخدم، إلا حيث يوجب ذلك القانون المصري المعمول به.</li>
+  <li>يتحمل المستخدمون وحدهم مسؤولية ضمان حصول أجهزتهم على اتصال إنترنت ثابت وكافٍ عند استخدام الخدمة.</li>
+</ul>
+
 <hr>
 
-<h2>٨. الملكية الفكرية</h2>
+<h2>٩. الملكية الفكرية</h2>
 <p>جميع محتويات وعلامات تجارية وبرامج وخوارزميات منصة Dartech هي ملكية فكرية لـ Dartech أو مرخصيها. تُمنح ترخيصاً محدوداً وقابلاً للإلغاء للاستخدام الشخصي غير التجاري وفق هذه الشروط.</p>
 
-<h2>٩. الإنهاء</h2>
+<h2>١٠. الإنهاء</h2>
 <p>تحتفظ Dartech بالحق في تعليق حسابك أو إنهائه في حال انتهاك هذه الشروط أو النشاط الاحتيالي. تخضع المبالغ المستردة عند الإنهاء للقسم ٣.</p>
 
-<h2>١٠. تعديلات الشروط</h2>
+<h2>١١. تعديلات الشروط</h2>
 <p>تحتفظ Dartech بالحق في تعديل هذه الشروط في أي وقت مع إشعار مسبق لا يقل عن <strong>٧ أيام</strong>. استمرارك في استخدام الخدمة يُعدّ قبولاً للشروط المُعدَّلة.</p>
   `,
 
@@ -1296,7 +1335,7 @@ ar: {
 
 <h2>١. البيانات التي لا نجمعها أو نخزنها</h2>
 <ul>
-  <li><strong>التسجيلات الصوتية:</strong> لا يُخزَّن أي صوت. تُعالَج بيانات الصوت في الوقت الفعلي وتُحذف فوراً. لا تُحتفظ بأي ملفات صوتية أو بصمات صوتية.</li>
+  <li><strong>التسجيلات الصوتية الخام:</strong> لا تُخزَّن Dartech التسجيلات الصوتية الخام بوصفها ملفات صوتية مستقلة على خوادمها. يُعالَج أي إدخال صوتي في الوقت الفعلي للأغراض الموضحة في القسم ٢أ أدناه. لا تُحتفظ بأي ملفات صوتية غير مُعالَجة أو بصمات صوتية دائمة بعد انتهاء المعالجة الفورية.</li>
   <li><strong>سجل المحادثات:</strong> لا يُحتفظ بمحادثات مساعد الذكاء الاصطناعي على خوادم Dartech بعد انتهاء الجلسة.</li>
   <li><strong>البيانات المالية الحساسة:</strong> لا تُخزَّن أرقام البطاقات الكاملة أو CVV أو أرقام الحسابات المصرفية أو بيانات الاعتماد المصرفية.</li>
   <li><strong>ملفات التعريف الإعلانية:</strong> لا تُنشأ ملفات تعريف سلوكية لأغراض الإعلان أو وساطة البيانات.</li>
@@ -1312,6 +1351,26 @@ ar: {
   <li><strong>بيانات تأكيد الدفع:</strong> للاشتراكات عبر قناة الدفع الخارجية، قد نجمع أرقام مرجع المعاملات وتأكيداتها فقط بهدف التحقق من الاشتراك وتفعيله.</li>
   <li><strong>مقاييس الاستخدام المجمّعة:</strong> إحصاءات مجهولة الهوية لتحسين الخدمة (عدد الأوامر — لا محتواها).</li>
   <li><strong>السجلات التقنية:</strong> سجلات الأخطاء وتقارير الأعطال المحتفظ بها لمدة أقصاها ٣٠ يوماً دون أي محتوى شخصي.</li>
+</ul>
+
+<h2>٢أ. معالجة البيانات الصوتية</h2>
+<div class="callout info">
+  <div class="callout-head"><span>ℹ البيانات الصوتية — إشعار الموافقة</span></div>
+  <p>بتفعيل ميزة الإدخال الصوتي داخل الخدمة، فأنت توافق صراحةً على جمع بياناتك الصوتية ومعالجتها والاحتفاظ بها بشكل محدود كما هو موضح في هذا القسم. إذا كنت لا توافق، يمكنك تعطيل ميزات الإدخال الصوتي من إعدادات التطبيق والاستمرار في استخدام الخدمة عبر الإدخال النصي.</p>
+</div>
+<p>عند تفعيل ميزة الإدخال الصوتي من قِبَل المستخدم، قد تجمع Dartech بيانات صوتية وتعالجها للأغراض المحدودة التالية حصراً:</p>
+<ul>
+  <li><strong>تفسير الأوامر:</strong> يُعالَج الإدخال الصوتي لتحويل الكلام إلى نص واستخلاص الأمر أو الاستفسار المقصود. تجري هذه المعالجة في الوقت الفعلي ويُعامَل النص الناتج بالطريقة ذاتها المتبعة مع أي إدخال نصي.</li>
+  <li><strong>تحسين الخدمة:</strong> قد تُحلَّل أنماط التفاعل الصوتي المجهولة الهوية والمُجمَّعة لتحسين دقة التعرف على الكلام وجودة واجهة الصوت. يُجرى هذا التحليل على بيانات تم تجريدها من المعلومات التعريفية الشخصية مسبقاً.</li>
+  <li><strong>التعرف على المستخدم والتخصيص:</strong> عند تفعيل الخيار صراحةً من قِبَل المستخدم، قد تُستخدَم خصائص الصوت للتعرف على المستخدم المتحدث من بين أفراد المنزل المسجّلين وتخصيص الردود وتفضيلات المنزل الذكي وسلوك الأتمتة وفقاً لذلك. هذه الميزة اختيارية ويمكن تعطيلها في أي وقت من إعدادات التطبيق.</li>
+</ul>
+<p><strong>الضمانات المطبَّقة على البيانات الصوتية:</strong></p>
+<ul>
+  <li>تُعالَج بيانات الصوت الخام بشكل مؤقت ولا تُخزَّن بوصفها ملفاً صوتياً دائماً على خوادم Dartech بعد انتهاء المعالجة الفورية.</li>
+  <li>تُخزَّن بيانات الصوت المُشتقة المستخدمة للتخصيص بصيغة مُشفَّرة ومرتبطة فقط بمُعرِّف حسابك، لا بهويتك الشخصية.</li>
+  <li>لا تُباع البيانات الصوتية أو تُؤجَّر أو تُشارَك مع أطراف ثالثة لأغراض الإعلان أو إنشاء ملفات تعريف تجارية.</li>
+  <li>حيث تستلزم معالجة الصوت إرسالاً إلى خدمة طرف ثالث لتحويل الكلام إلى نص أو لمعالجة الذكاء الاصطناعي، يخضع هذا الإرسال لسياسة الخصوصية الخاصة بذلك الطرف (انظر القسم ٣ أدناه).</li>
+  <li>يمكنك طلب حذف أي بيانات صوتية مُشتقة ومرتبطة بحسابك في أي وقت عبر التواصل مع دعم Dartech من خلال القناة الرسمية المتاحة في التطبيق.</li>
 </ul>
 
 <h2>٣. البيانات المُرسَلة إلى واجهات برمجة الطرف الثالث</h2>
